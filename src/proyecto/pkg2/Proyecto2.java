@@ -15,14 +15,13 @@ import proyecto.Funciones.*;
 
 public class Proyecto2 {
 public static Lista<Usuario> lista_usuarios = new Lista<Usuario>();
+public static Funciones funciones = new Funciones();
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Funciones funciones = new Funciones();
-	funciones.leer_txt();
         InterfazPrincipal objeto = new InterfazPrincipal();
         objeto.setVisible(true);
     }
