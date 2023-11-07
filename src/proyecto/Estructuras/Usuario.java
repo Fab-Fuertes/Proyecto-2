@@ -13,9 +13,9 @@ public class Usuario {
     private String usuario;
     private String prioridad;
     
-    public Usuario(){
-        this.usuario = null;
-        this.prioridad = null;
+    public Usuario(String usuario, String prioridad){
+        this.usuario = usuario;
+        this.prioridad = prioridad;
     }
 
     public String getUsuario() {
@@ -32,6 +32,10 @@ public class Usuario {
 
     public void setPrioridad(String prioridad) {
         this.prioridad = prioridad;
+    }
+
+    public void print() {
+	    System.out.println("Usuario: " + this.usuario + " // Prioridad:" + this.prioridad);
     }
     
     
