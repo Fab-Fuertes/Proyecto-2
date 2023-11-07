@@ -4,13 +4,14 @@
  * and open the template in the editor.
  */
 package proyecto.Interfaz;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import proyecto.Estructuras.Usuario;
+import proyecto.Funciones.*;
+import proyecto.pkg2.Proyecto2;
 
 /**
  *
@@ -76,45 +77,11 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         
         if (seleccionar == JFileChooser.APPROVE_OPTION){
             File Reservas = seleccionarArchivo.getSelectedFile();
-            cargarArchivo(Reservas);
+            Proyecto2.funciones.leer_txt(Reservas);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    public void cargarArchivo(File Reservas){
-        
-        FileReader fr = null;
-        BufferedReader br = null;
-        
-        try{
-            fr = new FileReader(Reservas);
-            br = new BufferedReader(fr);
-            
-            String linea;
-            
-            while(( linea = br.readLine()) != null){
-                String arreglo [] = linea.split(",");
-                if (arreglo.length >= 1){
-			System.out.println(arreglo[0]);
-                Usuario u = new Usuario(arreglo[0], arreglo[1]);
-                  
-                }
-            }
-            
-        }catch(Exception e){
-            e.printStackTrace();
-            
-        }
-        finally{
-            try{
-                if (fr !=null){
-                    fr.close();
-                }
-            }
-            catch(Exception e){
-                e.printStackTrace();
-            }
-        }
-    }
+
     
     /**
      * @param args the command line arguments
