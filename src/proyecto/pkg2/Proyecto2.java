@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package proyecto.pkg2;
+import proyecto.Interfaz.InterfazPrincipal;
 
 /**
  *
@@ -16,6 +17,9 @@ public class Proyecto2 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        InterfazPrincipal objeto = new InterfazPrincipal();
+        objeto.setVisible(true);
     }
     
 }
