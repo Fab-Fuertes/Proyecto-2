@@ -92,12 +92,10 @@ public class InterfazPrincipal extends javax.swing.JFrame {
             String linea;
             
             while(( linea = br.readLine()) != null){
-                Usuario u = new Usuario();
                 String arreglo [] = linea.split(",");
                 if (arreglo.length >= 1){
 			System.out.println(arreglo[0]);
-                    u.setUsuario(arreglo[0]);
-                    u.setPrioridad(arreglo [1]);
+                Usuario u = new Usuario(arreglo[0], arreglo[1]);
                   
                 }
             }
