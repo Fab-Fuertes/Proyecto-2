@@ -92,7 +92,29 @@ public class Lista<T> {
             this.setSize(this.getSize() - 1);
             return data;
         }
+        
+        public void remove(Documento doc) {
+            Nodo_Lista<T> pAux = this.getpFirst();
+            Nodo_Lista<T> pPrev = null;
 
+            // Si el documento a eliminar es el primer nodo
+            if (pAux != null && pAux.getData().equals(doc)) {
+                this.setpFirst(pAux.getpNext()); // Cambiar la cabeza
+                return;
+            }
+
+            // Buscar el documento a eliminar, seguir el rastro del nodo anterior
+            while (pAux != null && !pAux.getData().equals(doc)) {
+                pPrev = pAux;
+                pAux = pAux.getpNext();
+            } 
+
+            // Si el documento no está presente en la lista
+            if (pAux == null) return;
+
+            // Desenlazar el nodo de la lista
+            pPrev.setpNext(pAux.getpNext());
+        }
 
 	/**
 	 * @return the pFirst

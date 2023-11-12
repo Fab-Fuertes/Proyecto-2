@@ -12,22 +12,22 @@ package proyecto.Estructuras;
 // Clase para representar un montículo binario mínimo
 
 public class MinHeap {
-    Lista<Integer> heap;
+    Lista<Documento> heap;
 
     // Constructor
     public MinHeap() {
-        this.heap = new Lista<Integer>();
+        this.heap = new Lista<Documento>();
     }
 
     // Método para insertar un elemento en el montículo
-    public void insert(int val) {
-        heap.InsertLast(val);
+    public void insert(Documento doc) {
+        heap.InsertLast(doc);
         int index = heap.getSize() - 1;
         int parent = (index - 1) / 2;
 
-        while (parent >= 0 && heap.searchByIndex(parent).getData() > heap.searchByIndex(index).getData()) {
+        while (parent >= 0 && heap.searchByIndex(parent).getData().getPrioridad().ordinal() > heap.searchByIndex(index).getData().getPrioridad().ordinal()) {
             // Intercambiar elementos manualmente
-            int temp = heap.searchByIndex(parent).getData();
+            Documento temp = heap.searchByIndex(parent).getData();
             heap.searchByIndex(parent).setData(heap.searchByIndex(index).getData());
             heap.searchByIndex(index).setData(temp);
 
@@ -37,11 +37,11 @@ public class MinHeap {
     }
 
     // Método para eliminar el elemento mínimo del montículo
-    public int removeMin() {
+    public Documento removeMin() {
         if (heap.getSize() == 0) {
             throw new IllegalStateException("Heap is empty");
         } else if (heap.getSize() == 1) {
-            int min = heap.getpFirst().getData();
+            Documento min = heap.getpFirst().getData();
             heap.setpFirst(null);
             heap.setpLast(null);
             heap.setSize(0);
@@ -49,8 +49,8 @@ public class MinHeap {
         }
 
         // Eliminar el mínimo y mover el último elemento a la raíz
-        int min = heap.getpFirst().getData();
-        int lastElement = heap.getpLast().getData();
+        Documento min = heap.getpFirst().getData();
+        Documento lastElement = heap.getpLast().getData();
         heap.getpFirst().setData(lastElement);
         heap.setSize(heap.getSize() - 1);
 
@@ -66,21 +66,38 @@ public class MinHeap {
         int right = 2 * index + 2;
         int smallest = index;
 
-        if (left < heap.getSize() && heap.searchByIndex(left).getData() < heap.searchByIndex(smallest).getData()) {
+        if (left < heap.getSize() && heap.searchByIndex(left).getData().getPrioridad().ordinal() < heap.searchByIndex(smallest).getData().getPrioridad().ordinal()) {
             smallest = left;
         }
 
-        if (right < heap.getSize() && heap.searchByIndex(right).getData() < heap.searchByIndex(smallest).getData()) {
+        if (right < heap.getSize() && heap.searchByIndex(right).getData().getPrioridad().ordinal() < heap.searchByIndex(smallest).getData().getPrioridad().ordinal()) {
             smallest = right;
         }
 
         if (smallest != index) {
             // Intercambiar elementos manualmente
-            int temp = heap.searchByIndex(index).getData();
+            Documento temp = heap.searchByIndex(index).getData();
             heap.searchByIndex(index).setData(heap.searchByIndex(smallest).getData());
             heap.searchByIndex(smallest).setData(temp);
 
             minHeapify(smallest);
         }
     }
+    
+    public void remove(Documento doc) {
+        // Buscar el documento en el montículo
+        for (int i = 0; i < heap.getSize(); i++) {
+            if (heap.searchByIndex(i).getData().equals(doc)) {
+                // Mover el último elemento al lugar del elemento a eliminar
+                heap.searchByIndex(i).setData(heap.searchByIndex(heap.getSize() - 1).getData());
+                heap.setSize(heap.getSize() - 1);
+
+                // Reajustar el montículo
+                minHeapify(i);
+                break;
+            }
+        }
+    }
+
 }
+
