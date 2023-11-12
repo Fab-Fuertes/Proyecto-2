@@ -12,8 +12,8 @@ public class Nodo_Lista<T> {
 	private T data;
 
 	public Nodo_Lista(T data) {
-		this.data = data;
-		this.pNext = null;
+            this.data = data;
+            this.pNext = null;
 	}
 
 	private Nodo_Lista<T> pNext;
@@ -45,7 +45,5 @@ public class Nodo_Lista<T> {
 	public void setpNext(Nodo_Lista<T> pNext) {
 		this.pNext = pNext;
 	}
-
-	
 	
 }

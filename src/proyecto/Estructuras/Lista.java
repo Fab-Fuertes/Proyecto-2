@@ -65,6 +65,34 @@ public class Lista<T> {
 			return null;
 		}
 	}
+        
+        public T remove(int index) {
+            if (index < 0 || index >= this.getSize()) {
+                throw new IndexOutOfBoundsException("Index out of bounds");
+            }
+
+            Nodo_Lista<T> pAux = this.getpFirst();
+            T data;
+
+            if (index == 0) {
+                data = this.getpFirst().getData();
+                this.setpFirst(this.getpFirst().getpNext());
+            } else {
+                int count = 0;
+                while (count != index - 1) {
+                    pAux = pAux.getpNext();
+                    count++;
+                }
+                data = pAux.getpNext().getData();
+                pAux.setpNext(pAux.getpNext().getpNext());
+                if (pAux.getpNext() == null) {
+                    this.setpLast(pAux);
+                }
+            }
+            this.setSize(this.getSize() - 1);
+            return data;
+        }
+
 
 	/**
 	 * @return the pFirst

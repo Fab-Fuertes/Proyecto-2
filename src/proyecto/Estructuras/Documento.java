@@ -5,31 +5,29 @@
  */
 package proyecto.Estructuras;
 
+import proyecto.Estructuras.*;
+
 /**
  *
- * @author fabys
+ * @author cehernandez
  */
-public class Usuario {
-    private String usuario;
+public class Documento {
+    private Usuario usuario;
     private Prioridad prioridad;
-    
-    public Usuario(String usuario, Prioridad prioridad){
+
+    public Documento(Usuario usuario) {
         this.usuario = usuario;
-        this.prioridad = prioridad;
+        this.prioridad = usuario.getPrioridad();
     }
 
-    public String getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(String usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 
-    public void print() {
-        System.out.println("Usuario: " + this.usuario + " // Prioridad:" + this.prioridad);
-    }    
-    
     public Prioridad getPrioridad() {
         return prioridad;
     }
@@ -37,4 +35,6 @@ public class Usuario {
     public void setPrioridad(Prioridad prioridad) {
         this.prioridad = prioridad;
     }
+
+    
 }

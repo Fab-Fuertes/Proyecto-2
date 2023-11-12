@@ -9,6 +9,7 @@ import proyecto.pkg2.Proyecto2;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -30,29 +31,32 @@ public class Funciones {
 
 			while ((linea = br.readLine()) != null) {
 				String arreglo[] = linea.split(",");
-				if (arreglo.length >= 1) {
-					if (arreglo[0].equalsIgnoreCase("usuario")){
-				}else{
-					Usuario u = new Usuario(arreglo[0], arreglo[1]);
-					Proyecto2.lista_usuarios.InsertLast(u);
-
+				if (arreglo.length >= 2) {
+					if (!arreglo[0].equalsIgnoreCase("usuario")){
+						try {
+							Usuario u = new Usuario(arreglo[0], Prioridad.valueOf(arreglo[1].toUpperCase()));
+							Proyecto2.lista_usuarios.InsertLast(u);
+						} catch (IllegalArgumentException e) {
+							System.out.println("Prioridad no válida para el usuario: " + arreglo[0]);
+						}
 					}
-
-				}else{
-					continue;
 				}
-				
 			}
 
+		} catch (IOException e) {
+			System.out.println("Error al leer el archivo: " + e.getMessage());
 		} catch (Exception e) {
 			e.printStackTrace();
 
 		} finally {
 			try {
+				if (br != null) {
+					br.close();
+				}
 				if (fr != null) {
 					fr.close();
 				}
-			} catch (Exception e) {
+			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
