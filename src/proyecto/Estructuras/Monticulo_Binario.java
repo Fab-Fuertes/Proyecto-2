@@ -55,12 +55,21 @@ public class Monticulo_Binario<T> {
 			} else {
 				nodo_insertar.setpLeft(raiz);
 				nodo_previo.setpLeft(nodo_insertar);
+				verificarRestricion(nodo_previo, nodo_insertar);
 				
 				
 			}
 				
 		}
 		size++;
+	}
+
+	public void verificarRestricion(Nodo_Arbol raiz, Nodo_Arbol raiz_previa) {
+		if (raiz.getPriority() <= raiz.getpLeft().getPriority()) {
+			System.out.println("yay :D");
+		}else{
+			
+		}
 	}
 	
 }
