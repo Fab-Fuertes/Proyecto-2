@@ -10,10 +10,11 @@ package proyecto.Estructuras;
  * @author fabys
  */
 public class Usuario {
+
     private String usuario;
     private Prioridad prioridad;
-    
-    public Usuario(String usuario, Prioridad prioridad){
+
+    public Usuario(String usuario, Prioridad prioridad) {
         this.usuario = usuario;
         this.prioridad = prioridad;
     }
@@ -28,8 +29,8 @@ public class Usuario {
 
     public void print() {
         System.out.println("Usuario: " + this.usuario + " // Prioridad:" + this.prioridad);
-    }    
-    
+    }
+
     public Prioridad getPrioridad() {
         return prioridad;
     }

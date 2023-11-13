@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package proyecto.Interfaz;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -28,12 +29,11 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form InterfazPrincipal
      */
-    
     private Simulacion simulacion;
     private JTextField jTextFieldIdentificador;
     private JComboBox<Prioridad> jComboBoxPrioridad;
     private JButton jButtonAgregarUsuario;
-    
+
     public InterfazPrincipal() {
         simulacion = new Simulacion();
         initComponents();
@@ -138,37 +138,37 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         JFileChooser seleccionarArchivo = new JFileChooser();
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivo csv", "csv");
-        
+
         seleccionarArchivo.setFileFilter(filtro);
-        
+
         int seleccionar = seleccionarArchivo.showOpenDialog(this);
-        
-        if (seleccionar == JFileChooser.APPROVE_OPTION){
+
+        if (seleccionar == JFileChooser.APPROVE_OPTION) {
             File Reservas = seleccionarArchivo.getSelectedFile();
             Proyecto2.funciones.leer_txt(Reservas);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
         private void Modificar_documentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modificar_documentosActionPerformed
-                // TODO add your handling code here:
-		
+            // TODO add your handling code here:
+
         }//GEN-LAST:event_Modificar_documentosActionPerformed
 
         private void Agregar_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_usuarioActionPerformed
-                // TODO add your handling code here:
-	Interfaz_Usuarios v2 = new Interfaz_Usuarios();	
-	v2.setVisible(true);
-	this.setVisible(false);
+            // TODO add your handling code here:
+            Interfaz_Usuarios v2 = new Interfaz_Usuarios();
+            v2.setVisible(true);
+            this.setVisible(false);
         }//GEN-LAST:event_Agregar_usuarioActionPerformed
 
         private void Modificar_documentos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modificar_documentos1ActionPerformed
-                // TODO add your handling code here:
+            // TODO add your handling code here:
         }//GEN-LAST:event_Modificar_documentos1ActionPerformed
 
         private void Modificar_documentos2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modificar_documentos2ActionPerformed
-                // TODO add your handling code here:
+            // TODO add your handling code here:
         }//GEN-LAST:event_Modificar_documentos2ActionPerformed
-    
+
 //    private void añadirComponentes() {
 //        jTextFieldIdentificador = new JTextField();
 //        jComboBoxPrioridad = new JComboBox<>(Prioridad.values());
@@ -205,7 +205,6 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 //
 //        pack();
 //    }
-    
 //    private void jButtonAgregarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {                                         
 //        // Obtén el identificador del usuario del campo de texto correspondiente
 //        String identificador = jTextFieldIdentificador.getText();
@@ -220,8 +219,6 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 //        jTextFieldIdentificador.setText("");
 //        jComboBoxPrioridad.setSelectedIndex(0);
 //    }
-
-    
     /**
      * @param args the command line arguments
      */

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package proyecto.pkg2;
+
 import proyecto.Interfaz.InterfazPrincipal;
 import proyecto.Estructuras.*;
 import proyecto.Funciones.*;
@@ -12,10 +13,10 @@ import proyecto.Funciones.*;
  *
  * @author fabys
  */
-
 public class Proyecto2 {
-public static Lista<Usuario> lista_usuarios = new Lista<Usuario>();
-public static Funciones funciones = new Funciones();
+
+    public static Lista<Usuario> lista_usuarios = new Lista<Usuario>();
+    public static Funciones funciones = new Funciones();
 
     /**
      * @param args the command line arguments
@@ -25,5 +26,5 @@ public static Funciones funciones = new Funciones();
         InterfazPrincipal objeto = new InterfazPrincipal();
         objeto.setVisible(true);
     }
-    
+
 }

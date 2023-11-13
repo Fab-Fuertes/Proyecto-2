@@ -12,6 +12,7 @@ import proyecto.Estructuras.*;
  * @author cehernandez
  */
 public class Documento {
+
     private Usuario usuario;
     private Prioridad prioridad;
 
@@ -36,5 +37,4 @@ public class Documento {
         this.prioridad = prioridad;
     }
 
-    
 }

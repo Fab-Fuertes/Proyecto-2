@@ -4,14 +4,14 @@
  * and open the template in the editor.
  */
 package proyecto.Estructuras;
+
 /**
  *
  * @author cehernandez
  */
-
 // Clase para representar un montículo binario mínimo
-
 public class MinHeap {
+
     Lista<Documento> heap;
 
     // Constructor
@@ -83,7 +83,7 @@ public class MinHeap {
             minHeapify(smallest);
         }
     }
-    
+
     public void remove(Documento doc) {
         // Buscar el documento en el montículo
         for (int i = 0; i < heap.getSize(); i++) {
@@ -100,4 +100,3 @@ public class MinHeap {
     }
 
 }
-

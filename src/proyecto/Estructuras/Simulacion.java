@@ -10,6 +10,7 @@ package proyecto.Estructuras;
  * @author cehernandez
  */
 public class Simulacion {
+
     private Impresora impresora;
 
     public Simulacion() {

@@ -9,41 +9,42 @@ package proyecto.Estructuras;
  * @author truenno
  */
 public class Nodo_Lista<T> {
-	private T data;
 
-	public Nodo_Lista(T data) {
-            this.data = data;
-            this.pNext = null;
-	}
+    private T data;
 
-	private Nodo_Lista<T> pNext;
+    public Nodo_Lista(T data) {
+        this.data = data;
+        this.pNext = null;
+    }
 
-	/**
-	 * @return the data
-	 */
-	public T getData() {
-		return data;
-	}
+    private Nodo_Lista<T> pNext;
 
-	/**
-	 * @param data the data to set
-	 */
-	public void setData(T data) {
-		this.data = data;
-	}
+    /**
+     * @return the data
+     */
+    public T getData() {
+        return data;
+    }
 
-	/**
-	 * @return the pNext
-	 */
-	public Nodo_Lista<T> getpNext() {
-		return pNext;
-	}
+    /**
+     * @param data the data to set
+     */
+    public void setData(T data) {
+        this.data = data;
+    }
 
-	/**
-	 * @param pNext the pNext to set
-	 */
-	public void setpNext(Nodo_Lista<T> pNext) {
-		this.pNext = pNext;
-	}
-	
+    /**
+     * @return the pNext
+     */
+    public Nodo_Lista<T> getpNext() {
+        return pNext;
+    }
+
+    /**
+     * @param pNext the pNext to set
+     */
+    public void setpNext(Nodo_Lista<T> pNext) {
+        this.pNext = pNext;
+    }
+
 }

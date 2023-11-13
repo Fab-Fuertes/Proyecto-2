@@ -20,46 +20,46 @@ import proyecto.Estructuras.Prioridad;
  */
 public class Funciones {
 
-	public void leer_txt(File Reservas) {
-		FileReader fr = null;
-		BufferedReader br = null;
+    public void leer_txt(File Reservas) {
+        FileReader fr = null;
+        BufferedReader br = null;
 
-		try {
-			fr = new FileReader(Reservas);
-			br = new BufferedReader(fr);
+        try {
+            fr = new FileReader(Reservas);
+            br = new BufferedReader(fr);
 
-			String linea;
+            String linea;
 
-			while ((linea = br.readLine()) != null) {
-				String arreglo[] = linea.split(",");
-				if (arreglo.length >= 2) {
-					if (!arreglo[0].equalsIgnoreCase("usuario")){
-						try {
-							Usuario u = new Usuario(arreglo[0], Prioridad.valueOf(arreglo[1].toUpperCase()));
-							Proyecto2.lista_usuarios.InsertLast(u);
-						} catch (IllegalArgumentException e) {
-							System.out.println("Prioridad no válida para el usuario: " + arreglo[0]);
-						}
-					}
-				}
-			}
+            while ((linea = br.readLine()) != null) {
+                String arreglo[] = linea.split(",");
+                if (arreglo.length >= 2) {
+                    if (!arreglo[0].equalsIgnoreCase("usuario")) {
+                        try {
+                            Usuario u = new Usuario(arreglo[0], Prioridad.valueOf(arreglo[1].toUpperCase()));
+                            Proyecto2.lista_usuarios.InsertLast(u);
+                        } catch (IllegalArgumentException e) {
+                            System.out.println("Prioridad no válida para el usuario: " + arreglo[0]);
+                        }
+                    }
+                }
+            }
 
-		} catch (IOException e) {
-			System.out.println("Error al leer el archivo: " + e.getMessage());
-		} catch (Exception e) {
-			e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
 
-		} finally {
-			try {
-				if (br != null) {
-					br.close();
-				}
-				if (fr != null) {
-					fr.close();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
+        } finally {
+            try {
+                if (br != null) {
+                    br.close();
+                }
+                if (fr != null) {
+                    fr.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

@@ -10,6 +10,7 @@ package proyecto.Estructuras;
  * @author cehernandez
  */
 public class Impresora {
+
     private MinHeap colaDeImpresion;
     private Lista<Documento> listaDeDocumentos;
 
