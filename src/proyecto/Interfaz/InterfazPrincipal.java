@@ -37,7 +37,6 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     public InterfazPrincipal() {
         simulacion = new Simulacion();
         initComponents();
-        añadirComponentes();
     }
 
     /**
@@ -51,6 +50,10 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 
                 jButton1 = new javax.swing.JButton();
                 jLabel1 = new javax.swing.JLabel();
+                Agregar_usuario = new javax.swing.JButton();
+                Modificar_documentos = new javax.swing.JButton();
+                Modificar_documentos1 = new javax.swing.JButton();
+                Modificar_documentos2 = new javax.swing.JButton();
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,8 +64,36 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                         }
                 });
 
-                jLabel1.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
+                jLabel1.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
                 jLabel1.setText("Sistema de Impresión ");
+
+                Agregar_usuario.setText("Modificar Usuarios");
+                Agregar_usuario.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                Agregar_usuarioActionPerformed(evt);
+                        }
+                });
+
+                Modificar_documentos.setText("Modificar Documentos");
+                Modificar_documentos.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                Modificar_documentosActionPerformed(evt);
+                        }
+                });
+
+                Modificar_documentos1.setText("Ver cola de Impresión");
+                Modificar_documentos1.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                Modificar_documentos1ActionPerformed(evt);
+                        }
+                });
+
+                Modificar_documentos2.setText("Modificar cola");
+                Modificar_documentos2.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                Modificar_documentos2ActionPerformed(evt);
+                        }
+                });
 
                 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                 getContentPane().setLayout(layout);
@@ -70,12 +101,17 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jButton1)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(Modificar_documentos2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(Modificar_documentos1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(Modificar_documentos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(Agregar_usuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(347, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(179, Short.MAX_VALUE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel1)
-                                .addGap(35, 35, 35))
+                                .addGap(38, 38, 38))
                 );
                 layout.setVerticalGroup(
                         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,7 +120,15 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton1)
-                                .addContainerGap(220, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Agregar_usuario)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Modificar_documentos)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Modificar_documentos1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Modificar_documentos2)
+                                .addContainerGap(37, Short.MAX_VALUE))
                 );
 
                 pack();
@@ -104,58 +148,78 @@ public class InterfazPrincipal extends javax.swing.JFrame {
             Proyecto2.funciones.leer_txt(Reservas);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+        private void Modificar_documentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modificar_documentosActionPerformed
+                // TODO add your handling code here:
+		
+        }//GEN-LAST:event_Modificar_documentosActionPerformed
+
+        private void Agregar_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_usuarioActionPerformed
+                // TODO add your handling code here:
+	Interfaz_Usuarios v2 = new Interfaz_Usuarios();	
+	v2.setVisible(true);
+	this.setVisible(false);
+        }//GEN-LAST:event_Agregar_usuarioActionPerformed
+
+        private void Modificar_documentos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modificar_documentos1ActionPerformed
+                // TODO add your handling code here:
+        }//GEN-LAST:event_Modificar_documentos1ActionPerformed
+
+        private void Modificar_documentos2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modificar_documentos2ActionPerformed
+                // TODO add your handling code here:
+        }//GEN-LAST:event_Modificar_documentos2ActionPerformed
     
-    private void añadirComponentes() {
-        jTextFieldIdentificador = new JTextField();
-        jComboBoxPrioridad = new JComboBox<>(Prioridad.values());
-        jButtonAgregarUsuario = new JButton("Agregar Usuario");
-
-        jButtonAgregarUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAgregarUsuarioActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = (javax.swing.GroupLayout)getContentPane().getLayout();
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(43, 43, 43)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton1)
-                        .addComponent(jTextFieldIdentificador)
-                        .addComponent(jComboBoxPrioridad)
-                        .addComponent(jButtonAgregarUsuario)) // Agrega el botón a la interfaz gráfica
-                    .addContainerGap(294, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(34, 34, 34)
-                    .addComponent(jButton1)
-                    .addComponent(jTextFieldIdentificador)
-                    .addComponent(jComboBoxPrioridad)
-                    .addComponent(jButtonAgregarUsuario) // Agrega el botón a la interfaz gráfica
-                    .addContainerGap(245, Short.MAX_VALUE))
-        );
-
-        pack();
-    }
+//    private void añadirComponentes() {
+//        jTextFieldIdentificador = new JTextField();
+//        jComboBoxPrioridad = new JComboBox<>(Prioridad.values());
+//        jButtonAgregarUsuario = new JButton("Agregar Usuario");
+//
+//        jButtonAgregarUsuario.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                jButtonAgregarUsuarioActionPerformed(evt);
+//            }
+//        });
+//
+//        javax.swing.GroupLayout layout = (javax.swing.GroupLayout)getContentPane().getLayout();
+//        layout.setHorizontalGroup(
+//            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//                .addGroup(layout.createSequentialGroup()
+//                    .addGap(43, 43, 43)
+//                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//                        .addComponent(jButton1)
+//                        .addComponent(jTextFieldIdentificador)
+//                        .addComponent(jComboBoxPrioridad)
+//                        .addComponent(jButtonAgregarUsuario)) // Agrega el botón a la interfaz gráfica
+//                    .addContainerGap(294, Short.MAX_VALUE))
+//        );
+//        layout.setVerticalGroup(
+//            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//                .addGroup(layout.createSequentialGroup()
+//                    .addGap(34, 34, 34)
+//                    .addComponent(jButton1)
+//                    .addComponent(jTextFieldIdentificador)
+//                    .addComponent(jComboBoxPrioridad)
+//                    .addComponent(jButtonAgregarUsuario) // Agrega el botón a la interfaz gráfica
+//                    .addContainerGap(245, Short.MAX_VALUE))
+//        );
+//
+//        pack();
+//    }
     
-    private void jButtonAgregarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // Obtén el identificador del usuario del campo de texto correspondiente
-        String identificador = jTextFieldIdentificador.getText();
-
-        // Obtén el tipo de prioridad del combo box correspondiente
-        Prioridad prioridad = (Prioridad) jComboBoxPrioridad.getSelectedItem();
-
-        // Agrega el nuevo usuario a tu simulación
-        simulacion.agregarUsuario(identificador, prioridad);
-
-        // Opcional: limpia los campos para la próxima entrada
-        jTextFieldIdentificador.setText("");
-        jComboBoxPrioridad.setSelectedIndex(0);
-    }
+//    private void jButtonAgregarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {                                         
+//        // Obtén el identificador del usuario del campo de texto correspondiente
+//        String identificador = jTextFieldIdentificador.getText();
+//
+//        // Obtén el tipo de prioridad del combo box correspondiente
+//        Prioridad prioridad = (Prioridad) jComboBoxPrioridad.getSelectedItem();
+//
+//        // Agrega el nuevo usuario a tu simulación
+//        simulacion.agregarUsuario(identificador, prioridad);
+//
+//        // Opcional: limpia los campos para la próxima entrada
+//        jTextFieldIdentificador.setText("");
+//        jComboBoxPrioridad.setSelectedIndex(0);
+//    }
 
     
     /**
@@ -194,6 +258,10 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     }
 
         // Variables declaration - do not modify//GEN-BEGIN:variables
+        private javax.swing.JButton Agregar_usuario;
+        private javax.swing.JButton Modificar_documentos;
+        private javax.swing.JButton Modificar_documentos1;
+        private javax.swing.JButton Modificar_documentos2;
         private javax.swing.JButton jButton1;
         private javax.swing.JLabel jLabel1;
         // End of variables declaration//GEN-END:variables
