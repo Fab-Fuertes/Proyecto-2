@@ -25,6 +25,7 @@ public class Proyecto2 {
         // TODO code application logic here
         InterfazPrincipal objeto = new InterfazPrincipal();
         objeto.setVisible(true);
+        
     }
 
 }
