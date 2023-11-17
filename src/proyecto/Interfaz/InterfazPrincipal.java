@@ -218,7 +218,6 @@ public class InterfazPrincipal extends javax.swing.JFrame {
             // TODO add your handling code here:
             Interfaz_Usuarios v2 = new Interfaz_Usuarios();
             v2.setVisible(true);
-            this.setVisible(false);
         }//GEN-LAST:event_Agregar_usuarioActionPerformed
 
         private void Modificar_documentos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modificar_documentos1ActionPerformed

@@ -13,12 +13,20 @@ import java.io.IOException;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import proyecto.Estructuras.Prioridad;
-
+import javax.swing.Timer;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 /**
  *
  * @author truenno
  */
 public class Funciones {
+	
+    private Timer tiempo;
+    private int milisegundos = 0;
+    private int segundos = 0;
+    private int minutos = 0;
+    private int horas = 0;
 
     public void leer_txt(File Reservas) {
         FileReader fr = null;
@@ -61,5 +69,35 @@ public class Funciones {
                 e.printStackTrace();
             }
         }
+    }
+   
+    
+        public void Cronometro() {
+            milisegundos ++;
+            if(milisegundos == 100){
+                segundos ++;
+                milisegundos = 0;
+            }
+            if(segundos == 60){
+                minutos ++;
+                segundos= 0;
+            }
+            if(minutos == 60){
+                horas ++;
+                minutos = 0;
+            }
+            if(horas ==24){
+                horas=0;
+            }
+            
+            actualizarEtiquetaTiempo();
+                
+        }
+        
+    
+	    
+    private String actualizarEtiquetaTiempo(){
+        String texto = (horas<= 9?"0":"")+horas+":"+(minutos<=9?"0":"")+minutos+":"+(segundos<=9?"0":"")+segundos+":"+(milisegundos<= 9?"0":"")+milisegundos ;
+   	return texto;
     }
 }

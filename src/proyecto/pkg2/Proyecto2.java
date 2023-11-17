@@ -8,6 +8,7 @@ package proyecto.pkg2;
 import proyecto.Interfaz.InterfazPrincipal;
 import proyecto.Estructuras.*;
 import proyecto.Funciones.*;
+import javax.swing.Timer;
 
 /**
  *
