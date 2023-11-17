@@ -44,10 +44,9 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 
     public InterfazPrincipal() {
         simulacion = new Simulacion();
-        this.setLocationRelativeTo(null);
         tiempo = new Timer(10 , acciones);
-        initComponents();
         tiempo.start();
+        initComponents();
     }
     
     
