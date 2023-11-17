@@ -26,4 +26,5 @@ public class Simulacion {
     public Documento siguienteDocumento() {
         return impresora.siguienteDocumento();
     }
+
 }
