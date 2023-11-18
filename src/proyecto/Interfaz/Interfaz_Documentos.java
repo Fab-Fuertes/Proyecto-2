@@ -8,12 +8,12 @@ package proyecto.Interfaz;
  *
  * @author truenno
  */
-public class Interfaz_Usuarios extends javax.swing.JFrame {
+public class Interfaz_documentos extends javax.swing.JFrame {
 
     /**
      * Creates new form Interfaz_Usuarios
      */
-    public Interfaz_Usuarios() {
+    public Interfaz_documentos() {
         initComponents();
     }
 
