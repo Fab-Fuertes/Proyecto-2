@@ -10,21 +10,28 @@ package proyecto.Estructuras;
  * @author cehernandez
  */
 public class Simulacion {
-
+    private HashTable<String, Usuario> usuarios;
     private Impresora impresora;
 
     public Simulacion() {
+        usuarios = new HashTable<>(100);
         impresora = new Impresora();
     }
 
     public void agregarUsuario(String identificador, Prioridad prioridad) {
         Usuario usuario = new Usuario(identificador, prioridad);
-        Documento documento = new Documento(usuario);
-        impresora.agregarDocumento(documento);
+        usuarios.put(identificador, usuario);
     }
 
-    public Documento siguienteDocumento() {
-        return impresora.siguienteDocumento();
+    public void enviarDocumento(String identificador, Documento documento) {
+        Usuario usuario = usuarios.get(identificador);
+        if (usuario != null) {
+            impresora.agregarDocumento(documento);
+        }
     }
-
+    
+   public void eliminarUsuario(String identificador) {
+        usuarios.remove(identificador);
+    }
+   
 }
