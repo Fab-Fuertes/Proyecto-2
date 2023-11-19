@@ -73,7 +73,8 @@ public class Eliminar_Usuarios extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         Interfaz_Usuarios v2 = new Interfaz_Usuarios();
-            this.setVisible(false);
+        v2.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

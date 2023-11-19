@@ -21,10 +21,13 @@ public class Impresora {
     }
 
     // Método para agregar un documento a la cola de impresión
-    public void agregarDocumento(Documento doc) {
+    public void agregarDocumentoCola(Documento doc) {
         // Agregar el documento a la cola de impresión
         colaDeImpresion.insert(doc);
-
+    }
+    
+    // Método para agregar un documento a la lista de documentos
+    public void agregarDocumentoLista(Documento doc){
         // Agregar el documento a la lista de documentos
         listaDeDocumentos.InsertLast(doc);
     }
