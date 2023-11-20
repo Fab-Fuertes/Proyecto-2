@@ -12,12 +12,14 @@ import proyecto.Estructuras.*;
  * @author cehernandez
  */
 public class Documento {
-
+    
+   
     private Prioridad prioridad;
     private String nombre;
     private int tamaño;
     private String tipo;
     private String tiempo;
+    private boolean exists;
 
     public Documento(Prioridad prioridad, String nombre, int tamaño, String tipo) {
         this.prioridad = prioridad;
