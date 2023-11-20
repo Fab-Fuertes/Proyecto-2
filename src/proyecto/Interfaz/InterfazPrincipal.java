@@ -220,7 +220,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 
         private void Modificar_documentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modificar_documentosActionPerformed
             // TODO add your handling code here:
-            Interfaz_documentos v2 = new Interfaz_documentos();
+            Interfaz_Documentos v2 = new Interfaz_Documentos();
             v2.setVisible(true);
             this.setVisible(false);
 

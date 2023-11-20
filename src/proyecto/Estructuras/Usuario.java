@@ -10,13 +10,30 @@ package proyecto.Estructuras;
  * @author fabys
  */
 public class Usuario {
-
     private String usuario;
     private Prioridad prioridad;
-
-    public Usuario(String usuario, Prioridad prioridad) {
+    private Lista<Documento> documentos;
+    
+    public Usuario(String usuario, Prioridad prioridad){
         this.usuario = usuario;
         this.prioridad = prioridad;
+        this.documentos = new Lista<>();
+    }
+    
+    public void agregarDocumento(Documento documento) {
+        this.documentos.InsertLast(documento);
+    }
+
+    public Documento getDocumento(int index) {
+        return this.documentos.searchByIndex(index).getData();
+    }
+    
+    public void eliminarDocumento(Documento documento) {
+        this.documentos.remove(documento);
+    }
+
+    public Lista<Documento> getDocumentos() {
+        return this.documentos;
     }
 
     public String getUsuario() {
@@ -29,8 +46,8 @@ public class Usuario {
 
     public void print() {
         System.out.println("Usuario: " + this.usuario + " // Prioridad:" + this.prioridad);
-    }
-
+    }    
+    
     public Prioridad getPrioridad() {
         return prioridad;
     }

@@ -13,26 +13,23 @@ import proyecto.Estructuras.*;
  */
 public class Documento {
 
-    private Usuario usuario;
     private Prioridad prioridad;
     private String nombre;
     private int tamaño;
     private String tipo;
+    private String tiempo;
 
-    public Documento(Usuario usuario, String nombre, int tamaño, String tipo) {
-        this.usuario = usuario;
-        this.prioridad = usuario.getPrioridad();
+    public Documento(Prioridad prioridad, String nombre, int tamaño, String tipo) {
+        this.prioridad = prioridad;
         this.nombre = nombre;
         this.tamaño = tamaño;
         this.tipo = tipo;
     }
     
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public Documento(String nombre, int tamaño, String tipo) {
+        this.nombre = nombre;
+        this.tamaño = tamaño;
+        this.tipo = tipo;
     }
 
     public Prioridad getPrioridad() {
@@ -68,3 +65,4 @@ public class Documento {
     }
 
 }
+

@@ -33,11 +33,11 @@ public class Impresora {
     }
 
     // Método para eliminar un documento de la cola de impresión
-    public void eliminarDocumento(String nombreUsuario) {
+    public void eliminarDocumento(String nombreDocumento) {
         // Buscar el documento en la lista de documentos
         for (int i = 0; i < listaDeDocumentos.getSize(); i++) {
             Documento doc = listaDeDocumentos.searchByIndex(i).getData();
-            if (doc.getUsuario().getUsuario().equals(nombreUsuario)) {
+            if (doc.getNombre().equals(nombreDocumento)) {
                 // Eliminar el documento de la lista de documentos
                 listaDeDocumentos.remove(i);
 
@@ -52,4 +52,5 @@ public class Impresora {
     public Documento siguienteDocumento() {
         return colaDeImpresion.removeMin();
     }
+    
 }
