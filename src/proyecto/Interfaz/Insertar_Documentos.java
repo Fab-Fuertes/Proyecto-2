@@ -137,6 +137,7 @@ public class Insertar_Documentos extends javax.swing.JFrame {
         String tipoDocumento = listaTipos.getSelectedItem().toString();
         Documento doc = new Documento(nombreDocumento,tamaño,tipoDocumento);
         impresora.agregarDocumentoLista(doc);
+        System.out.println("Funcionaaaaa");
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
