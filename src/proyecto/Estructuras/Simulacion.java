@@ -30,8 +30,29 @@ public class Simulacion {
         }
     }
     
+    public void imprimirDocumento(String identificadorUsuario, int indexDocumento) {
+        Usuario usuario = usuarios.get(identificadorUsuario);
+        if (usuario != null) {
+            Documento documento = usuario.getDocumento(indexDocumento);
+            impresora.agregarDocumento(documento);
+        }
+    }
+    
    public void eliminarUsuario(String identificador) {
         usuarios.remove(identificador);
     }
    
+    public void crearDocumento(String identificadorUsuario, String nombre, int tamaño, String tipo) {
+        Usuario usuario = usuarios.get(identificadorUsuario);
+        if (usuario != null) {
+            Prioridad prioridad = usuario.getPrioridad();
+            Documento documento = new Documento(prioridad, nombre, tamaño, tipo);
+            usuario.agregarDocumento(documento);
+        }
+    }
+    
+    public Usuario getUsuario(String identificador) {
+        return usuarios.get(identificador);
+    }
+
 }

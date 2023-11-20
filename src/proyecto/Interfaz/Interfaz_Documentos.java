@@ -3,17 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package proyecto.Interfaz;
-
+import proyecto.Estructuras.Usuario;
+import proyecto.Estructuras.Documento;
+import proyecto.Estructuras.Simulacion;
 /**
  *
  * @author truenno
  */
 public class Interfaz_documentos extends javax.swing.JFrame {
-
+    
+    private Simulacion simulacion;
     /**
      * Creates new form Interfaz_Usuarios
      */
-    public Interfaz_documentos() {
+    public Interfaz_documentos(Simulacion simulacion) {
+        this.simulacion = simulacion;
         initComponents();
     }
 
@@ -113,7 +117,28 @@ public class Interfaz_documentos extends javax.swing.JFrame {
                 InterfazPrincipal v2 = new InterfazPrincipal();
                 this.setVisible(false);
         }//GEN-LAST:event_RegresarActionPerformed
+    
+    private void jButton2ActionPerformed2(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+        String identificadorUsuario = Entrada1.getText();
+        String nombre = Entrada2.getText();
+        int tamaño = Integer.parseInt(Entrada3.getText());
+        String tipo = Entrada4.getText();
+        simulacion.crearDocumento(identificadorUsuario, nombre, tamaño, tipo);
+    }                                        
 
+    private void jButton1ActionPerformed2(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+        String identificadorUsuario = Entrada1.getText();
+        int index = Integer.parseInt(Entrada2.getText());
+        Usuario usuario = simulacion.getUsuario(identificadorUsuario);
+        if (usuario != null) {
+            Documento documento = usuario.getDocumento(index);
+            if (documento != null) {
+                usuario.eliminarDocumento(documento);
+            }
+        }
+    }     
     /**
      * @param args the command line arguments
      */
@@ -148,7 +173,10 @@ public class Interfaz_documentos extends javax.swing.JFrame {
             }
         });
     }
-
+        private javax.swing.JTextField Entrada1;
+        private javax.swing.JTextField Entrada2;
+        private javax.swing.JTextField Entrada3;
+        private javax.swing.JTextField Entrada4;
         // Variables declaration - do not modify//GEN-BEGIN:variables
         private javax.swing.JButton Regresar;
         private javax.swing.JButton jButton1;
