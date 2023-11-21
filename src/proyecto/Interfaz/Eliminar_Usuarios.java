@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package proyecto.Interfaz;
+import javax.swing.JOptionPane;
+import proyecto.Estructuras.*;
+import proyecto.pkg2.*;
 
 /**
  *
@@ -27,13 +30,25 @@ public class Eliminar_Usuarios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        usuario_eliminar = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        usuario_eliminar.setText("Inserte el usuario a eliminar...");
+        usuario_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usuario_eliminarActionPerformed(evt);
+            }
+        });
+
         jButton1.setText("Eliminar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Regresar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -52,14 +67,14 @@ public class Eliminar_Usuarios extends javax.swing.JFrame {
                     .addComponent(jButton2)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jButton1)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(usuario_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(182, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(usuario_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
@@ -76,6 +91,26 @@ public class Eliminar_Usuarios extends javax.swing.JFrame {
         v2.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        for(Nodo_Lista<Usuario> pAux = Proyecto2.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getpNext()) {
+		if(pAux.getData().getUsuario().equalsIgnoreCase(usuario_eliminar.getText())) {
+			Nodo_Lista nodo_movimiento = pAux.getpNext().getpNext();
+			pAux.setpNext(nodo_movimiento);
+			System.out.println("Eliminación Exitosa");
+			break;
+		}else if(pAux.getpNext() == null) {
+			JOptionPane.showMessageDialog(rootPane, "No se encontro el usuario en nuestra base!");
+		}
+		
+	}	
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void usuario_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuario_eliminarActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_usuario_eliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -115,6 +150,6 @@ public class Eliminar_Usuarios extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField usuario_eliminar;
     // End of variables declaration//GEN-END:variables
 }
