@@ -18,23 +18,28 @@ import org.graphstream.graph.implementations.*;
  * @author fabys
  */
 public class Mostrar {
-    public static MinHeap colaDeImpresion;
-    public static Lista<Documento> listaDeDocumentos; 
+    private MinHeap colaDeImpresion;
+    private Lista<Documento> listaDeDocumentos; 
     private Graph arbol;
     private Graph cola;
     
-    
-    public Mostrar() {
-        colaDeImpresion = new MinHeap();
-        arbol = new SingleGraph("Tutorial");
+    public Mostrar(MinHeap colaDeImpresion, Lista<Documento> listaDeDocumentos) {
+        this.colaDeImpresion = colaDeImpresion;
+        this.listaDeDocumentos = listaDeDocumentos;
+        this.arbol = new SingleGraph("Arbol");
+        this.cola = new SingleGraph("Cola");
     }
     
-    public void mostrar() {
+    public void mostrarArbol() {
+        // Aquí debes agregar el código para visualizar el arbol
         arbol.display();
     }
-
-}
     
+    public void mostrarCola() {
+        // Aquí debes agregar el código para visualizar la cola
+        cola.display();
+    }
+}
     
 
 
