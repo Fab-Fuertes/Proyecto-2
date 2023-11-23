@@ -8,6 +8,7 @@ package proyecto.Interfaz;
 import proyecto.Estructuras.Simulacion;
 import proyecto.Estructuras.Usuario;
 import proyecto.Estructuras.Prioridad;
+import proyecto.pkg2.Proyecto2;
 
 /**
  *
@@ -125,8 +126,9 @@ public class Insertar_Usuarios extends javax.swing.JFrame {
         String datoNombre = Entrada1.getText();
         String datoPrioridad = listaPrioridades.getSelectedItem().toString();
         System.out.println("Prioridad:" + datoPrioridad);
-        Prioridad valorEnum = Prioridad.valueOf(datoPrioridad);
-        simulacion.agregarUsuario(datoNombre, valorEnum);
+        Prioridad prioridadEnum = Prioridad.valueOf(datoPrioridad);
+        Usuario usuario = new Usuario(datoNombre, prioridadEnum);
+        Proyecto2.lista_usuarios.InsertLast(usuario);
       
         
     }//GEN-LAST:event_jButton1ActionPerformed
