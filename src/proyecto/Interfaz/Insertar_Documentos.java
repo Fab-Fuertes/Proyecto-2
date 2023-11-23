@@ -5,6 +5,7 @@
  */
 package proyecto.Interfaz;
 import proyecto.Estructuras.*;
+import proyecto.Grafico.*;
 import proyecto.pkg2.Proyecto2;
 /**
  *
@@ -14,12 +15,17 @@ public class Insertar_Documentos extends javax.swing.JFrame {
     
     
     Impresora impresora = new Impresora();
+    Lista listaDeDocumentos = new Lista();
+    public static MostrarLista mostrar;
+    Interfaz_mostrar interfaz;
 
     /**
      * Creates new form Insertar_Documentos
      */
-    public Insertar_Documentos() {
+    public Insertar_Documentos(MostrarLista listaDeDocumentos) {
         initComponents();
+        mostrar = listaDeDocumentos;
+        setTitle("Insertar Documentos");
     }
 
     /**
@@ -135,7 +141,7 @@ public class Insertar_Documentos extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Interfaz_Documentos v2 = new Interfaz_Documentos();
+        Interfaz_Documentos v2 = new Interfaz_Documentos(mostrar);
             v2.setVisible(true);
             this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -149,12 +155,13 @@ public class Insertar_Documentos extends javax.swing.JFrame {
         int tamaño = Integer.parseInt(tamañoDocumento);
         String tipoDocumento = listaTipos.getSelectedItem().toString();
         Documento doc = new Documento(nombreDocumento,tamaño,tipoDocumento);
-        System.out.println("Funcionaaaaa");
+        
         
         for (Nodo_Lista<Usuario> pAux = Proyecto2.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getpNext()) {
             if(pAux.getData().getUsuario().equalsIgnoreCase(nombreUsuarios)){
                 doc.setPrioridad(pAux.getData().getPrioridad());
-                pAux.getData().agregarDocumento(doc);   
+                pAux.getData().agregarDocumento(doc);
+                mostrar.getListaDeDocumentos().InsertLast(doc);
                 pAux.getData().print();
             }else {
                 continue;
@@ -193,7 +200,7 @@ public class Insertar_Documentos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Insertar_Documentos().setVisible(true);
+                new Insertar_Documentos(mostrar).setVisible(true);
             }
         });
     }

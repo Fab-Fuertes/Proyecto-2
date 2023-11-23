@@ -12,7 +12,7 @@ package proyecto.Estructuras;
 public class Impresora {
 
     private MinHeap colaDeImpresion;
-    private Lista<Documento> listaDeDocumentos;
+    public static Lista<Documento> listaDeDocumentos;
 
     // Constructor
     public Impresora() {

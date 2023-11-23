@@ -22,6 +22,7 @@ import javax.swing.Timer;
 import proyecto.pkg2.Proyecto2;
 import proyecto.Estructuras.Prioridad;
 import proyecto.Estructuras.*;
+import proyecto.Grafico.*;
 
 /**
  *
@@ -41,6 +42,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     private JTextField jTextFieldIdentificador;
     private JComboBox<Prioridad> jComboBoxPrioridad;
     private JButton jButtonAgregarUsuario;
+    MostrarLista listaDeDocumentos;
 
     public InterfazPrincipal() {
         simulacion = new Simulacion();
@@ -220,7 +222,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 
         private void Modificar_documentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modificar_documentosActionPerformed
             // TODO add your handling code here:
-            Interfaz_Documentos v2 = new Interfaz_Documentos();
+            Interfaz_Documentos v2 = new Interfaz_Documentos(listaDeDocumentos);
             v2.setVisible(true);
             this.setVisible(false);
 

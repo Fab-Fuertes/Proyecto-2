@@ -16,7 +16,31 @@ import proyecto.Estructuras.Documento;
  * @author fabys
  */
 public class MostrarLista {
+    public static Lista listaDeDocumentos;
     private Graph lista;
+    
+    public MostrarLista(){
+        listaDeDocumentos = new Lista();
+        lista = new SingleGraph("Tutorial");
+    }
+
+    public static Lista getListaDeDocumentos() {
+        return listaDeDocumentos;
+    }
+
+    public static void setListaDeDocumentos(Lista listaDeDocumentos) {
+        MostrarLista.listaDeDocumentos = listaDeDocumentos;
+    }
+
+    public Graph getLista() {
+        return lista;
+    }
+
+    public void setLista(Graph lista) {
+        this.lista = lista;
+    }
+    
+    
     
     public MostrarLista(Lista<Documento> listaDeDocumentos) {
         this.lista = new SingleGraph("Lista");
@@ -32,7 +56,7 @@ public class MostrarLista {
         }
     }
     
-    public void mostrar() {
+    public void mostrarLista() {
         lista.display();
     }
 }
