@@ -10,47 +10,54 @@ package proyecto.Estructuras;
  * @author cehernandez
  */
 public class Impresora {
-
+    
     private MinHeap colaDeImpresion;
+    private HashTable<String, Documento> documentosPorUsuario;
     private Lista<Documento> listaDeDocumentos;
 
     // Constructor
     public Impresora() {
         this.colaDeImpresion = new MinHeap();
-        this.listaDeDocumentos = new Lista<>();
+        this.documentosPorUsuario = new HashTable<String, Documento>(20); // Tamaño inicial de 10
+        this.listaDeDocumentos = new Lista<Documento>();
     }
 
-    // Método para agregar un documento a la cola de impresión
+
     public void agregarDocumentoCola(Documento doc) {
-        // Agregar el documento a la cola de impresión
         colaDeImpresion.insert(doc);
     }
     
-    // Método para agregar un documento a la lista de documentos
     public void agregarDocumentoLista(Documento doc){
-        // Agregar el documento a la lista de documentos
         listaDeDocumentos.InsertLast(doc);
     }
 
-    // Método para eliminar un documento de la cola de impresión
-    public void eliminarDocumento(String nombreDocumento) {
-        // Buscar el documento en la lista de documentos
-        for (int i = 0; i < listaDeDocumentos.getSize(); i++) {
-            Documento doc = listaDeDocumentos.searchByIndex(i).getData();
-            if (doc.getNombre().equals(nombreDocumento)) {
-                // Eliminar el documento de la lista de documentos
-                listaDeDocumentos.remove(i);
+    public void agregarDocumento(Documento doc) { 
+        colaDeImpresion.insert(doc);
+        documentosPorUsuario.put(doc.getNombre(), doc);
+    }
 
-                // Eliminar el documento de la cola de impresión
-                colaDeImpresion.remove(doc);
-                break;
-            }
+    public void eliminarDocumento(String nombreDocumento) {
+        Documento doc = documentosPorUsuario.get(nombreDocumento);
+
+        if (doc != null) {
+            colaDeImpresion.remove(doc);
+            documentosPorUsuario.remove(nombreDocumento);
         }
     }
 
-    // Método para obtener el siguiente documento a imprimir
     public Documento siguienteDocumento() {
         return colaDeImpresion.removeMin();
     }
-    
+
+    public void liberarImpresora() {
+        Documento doc = colaDeImpresion.removeMin();
+
+        for (int i = 0; i < listaDeDocumentos.getSize(); i++) {
+            if (listaDeDocumentos.searchByIndex(i).getData().equals(doc)) {
+                listaDeDocumentos.remove(i);
+                break;
+            }
+        }
+        documentosPorUsuario.remove(doc.getNombre());
+    }
 }

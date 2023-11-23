@@ -22,6 +22,7 @@ import javax.swing.Timer;
 import proyecto.pkg2.Proyecto2;
 import proyecto.Estructuras.Prioridad;
 import proyecto.Estructuras.*;
+import proyecto.Funciones.Funciones;
 
 /**
  *
@@ -33,10 +34,8 @@ public class InterfazPrincipal extends javax.swing.JFrame {
      * Creates new form InterfazPrincipal
      */
     private Timer tiempo;
-    private int milisegundos = 0;
-    private int segundos = 0;
-    private int minutos = 0;
-    private int horas = 0;
+    private Funciones funcion;
+    private int milisegundos = 0, segundos = 0, minutos = 0, horas = 0;
     private Simulacion simulacion;
     private JTextField jTextFieldIdentificador;
     private JComboBox<Prioridad> jComboBoxPrioridad;
@@ -44,49 +43,26 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 
     public InterfazPrincipal() {
         simulacion = new Simulacion();
-        tiempo = new Timer(10 , acciones);
+        funcion = new Funciones();
+        tiempo = new Timer(10, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                funcion.Cronometro();
+                actualizarEtiquetaTiempo();
+            }
+        });
         tiempo.start();
         initComponents();
     }
     
     
-    private ActionListener acciones = new ActionListener(){
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            milisegundos ++;
-            if(milisegundos == 100){
-                segundos ++;
-                milisegundos = 0;
-            }
-            if(segundos == 60){
-                minutos ++;
-                segundos= 0;
-            }
-            if(minutos == 60){
-                horas ++;
-                minutos = 0;
-            }
-            if(horas ==24){
-                horas=0;
-            }
-            
-            actualizarEtiquetaTiempo();
-                
-        }
-        
-    };
-            
-            
-            
-    private void actualizarEtiquetaTiempo(){
-        String texto = (horas<= 9?"0":"")+horas+":"+(minutos<=9?"0":"")+minutos+":"+(segundos<=9?"0":"")+segundos+":"+(milisegundos<= 9?"0":"")+milisegundos ;
+    private void actualizarEtiquetaTiempo() {
+        String texto = funcion.actualizarEtiquetaTiempo();
         etiquetaTiempo.setText(texto);
-    
     }
     
     
     
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -16,6 +16,8 @@ import proyecto.Estructuras.Prioridad;
 import javax.swing.Timer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author truenno
@@ -43,7 +45,8 @@ public class Funciones {
                 if (arreglo.length >= 2) {
                     if (!arreglo[0].equalsIgnoreCase("usuario")) {
                         try {
-                            Usuario u = new Usuario(arreglo[0], Prioridad.valueOf(arreglo[1].toUpperCase()));
+                            String prioridad = arreglo[1].split("_")[1].toUpperCase();
+                            Usuario u = new Usuario(arreglo[0], Prioridad.valueOf(prioridad));
                             Proyecto2.lista_usuarios.InsertLast(u);
                         } catch (IllegalArgumentException e) {
                             System.out.println("Prioridad no válida para el usuario: " + arreglo[0]);
@@ -51,7 +54,8 @@ public class Funciones {
                     }
                 }
             }
-
+            JOptionPane.showMessageDialog(null, "Los usuarios se han cargado correctamente.");
+            
         } catch (IOException e) {
             System.out.println("Error al leer el archivo: " + e.getMessage());
         } catch (Exception e) {
@@ -70,6 +74,7 @@ public class Funciones {
             }
         }
     }
+   
    
     
         public void Cronometro() {
@@ -96,7 +101,7 @@ public class Funciones {
         
     
 	    
-    private String actualizarEtiquetaTiempo(){
+    public String actualizarEtiquetaTiempo(){
         String texto = (horas<= 9?"0":"")+horas+":"+(minutos<=9?"0":"")+minutos+":"+(segundos<=9?"0":"")+segundos+":"+(milisegundos<= 9?"0":"")+milisegundos ;
    	return texto;
     }
