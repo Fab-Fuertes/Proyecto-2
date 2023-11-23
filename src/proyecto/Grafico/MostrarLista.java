@@ -40,9 +40,9 @@ public class MostrarLista {
         this.lista = lista;
     }
     
-    
-    
+
     public MostrarLista(Lista<Documento> listaDeDocumentos) {
+        this.listaDeDocumentos = listaDeDocumentos;
         this.lista = new SingleGraph("Lista");
         Node nodoAnterior = null;
         for (int i = 0; i < listaDeDocumentos.getSize(); i++) {
@@ -55,7 +55,7 @@ public class MostrarLista {
             nodoAnterior = nodoActual;
         }
     }
-    
+
     public void mostrarLista() {
         lista.display();
     }

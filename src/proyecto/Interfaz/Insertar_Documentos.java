@@ -7,6 +7,7 @@ package proyecto.Interfaz;
 import proyecto.Estructuras.*;
 import proyecto.Grafico.*;
 import proyecto.pkg2.Proyecto2;
+import javax.swing.JOptionPane;
 /**
  *
  * @author fabys
@@ -152,20 +153,29 @@ public class Insertar_Documentos extends javax.swing.JFrame {
         String nombreUsuarios = Entrada1.getText();
         String nombreDocumento = Entrada2.getText();
         String tamañoDocumento = Entrada3.getText();
-        int tamaño = Integer.parseInt(tamañoDocumento);
+        int tamaño;
+        try {
+            tamaño = Integer.parseInt(tamañoDocumento);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "El tamaño del documento debe ser un número entero.");
+            return;
+        }
         String tipoDocumento = listaTipos.getSelectedItem().toString();
         Documento doc = new Documento(nombreDocumento,tamaño,tipoDocumento);
-        
-        
+
+        boolean usuarioEncontrado = false;
         for (Nodo_Lista<Usuario> pAux = Proyecto2.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getpNext()) {
             if(pAux.getData().getUsuario().equalsIgnoreCase(nombreUsuarios)){
                 doc.setPrioridad(pAux.getData().getPrioridad());
-                pAux.getData().agregarDocumento(doc);
-                mostrar.getListaDeDocumentos().InsertLast(doc);
+                pAux.getData().agregarDocumento(doc);   
                 pAux.getData().print();
-            }else {
-                continue;
+                usuarioEncontrado = true;
+                break;
             }
+        }
+
+        if (!usuarioEncontrado) {
+            JOptionPane.showMessageDialog(null, "No se encontró un usuario con el nombre " + nombreUsuarios);
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed

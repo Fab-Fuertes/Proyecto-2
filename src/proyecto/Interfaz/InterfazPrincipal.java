@@ -223,56 +223,6 @@ public class InterfazPrincipal extends javax.swing.JFrame {
             // TODO add your handling code here:
         }//GEN-LAST:event_Modificar_documentos2ActionPerformed
 
-//    private void añadirComponentes() {
-//        jTextFieldIdentificador = new JTextField();
-//        jComboBoxPrioridad = new JComboBox<>(Prioridad.values());
-//        jButtonAgregarUsuario = new JButton("Agregar Usuario");
-//
-//        jButtonAgregarUsuario.addActionListener(new java.awt.event.ActionListener() {
-//            public void actionPerformed(java.awt.event.ActionEvent evt) {
-//                jButtonAgregarUsuarioActionPerformed(evt);
-//            }
-//        });
-//
-//        javax.swing.GroupLayout layout = (javax.swing.GroupLayout)getContentPane().getLayout();
-//        layout.setHorizontalGroup(
-//            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//                .addGroup(layout.createSequentialGroup()
-//                    .addGap(43, 43, 43)
-//                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//                        .addComponent(jButton1)
-//                        .addComponent(jTextFieldIdentificador)
-//                        .addComponent(jComboBoxPrioridad)
-//                        .addComponent(jButtonAgregarUsuario)) // Agrega el botón a la interfaz gráfica
-//                    .addContainerGap(294, Short.MAX_VALUE))
-//        );
-//        layout.setVerticalGroup(
-//            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//                .addGroup(layout.createSequentialGroup()
-//                    .addGap(34, 34, 34)
-//                    .addComponent(jButton1)
-//                    .addComponent(jTextFieldIdentificador)
-//                    .addComponent(jComboBoxPrioridad)
-//                    .addComponent(jButtonAgregarUsuario) // Agrega el botón a la interfaz gráfica
-//                    .addContainerGap(245, Short.MAX_VALUE))
-//        );
-//
-//        pack();
-//    }
-//    private void jButtonAgregarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {                                         
-//        // Obtén el identificador del usuario del campo de texto correspondiente
-//        String identificador = jTextFieldIdentificador.getText();
-//
-//        // Obtén el tipo de prioridad del combo box correspondiente
-//        Prioridad prioridad = (Prioridad) jComboBoxPrioridad.getSelectedItem();
-//
-//        // Agrega el nuevo usuario a tu simulación
-//        simulacion.agregarUsuario(identificador, prioridad);
-//
-//        // Opcional: limpia los campos para la próxima entrada
-//        jTextFieldIdentificador.setText("");
-//        jComboBoxPrioridad.setSelectedIndex(0);
-//    }
     /**
      * @param args the command line arguments
      */
