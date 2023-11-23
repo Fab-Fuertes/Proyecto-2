@@ -162,7 +162,11 @@ public class Insertar_Documentos extends javax.swing.JFrame {
                 doc.setPrioridad(pAux.getData().getPrioridad());
                 pAux.getData().agregarDocumento(doc);
                 mostrar.getListaDeDocumentos().InsertLast(doc);
+                mostrar.getLista().addNode(nombreUsuarios);
                 pAux.getData().print();
+                Entrada1.setText("");
+                Entrada2.setText("");
+                Entrada3.setText("");
             }else {
                 continue;
             }
