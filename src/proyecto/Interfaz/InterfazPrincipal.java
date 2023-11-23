@@ -35,18 +35,17 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form InterfazPrincipal
      */
+    
     private Timer tiempo;
     private Funciones funcion;
-    private int milisegundos = 0, segundos = 0, minutos = 0, horas = 0;
     private Simulacion simulacion;
     private JTextField jTextFieldIdentificador;
     private JComboBox<Prioridad> jComboBoxPrioridad;
     private JButton jButtonAgregarUsuario;
-    MostrarLista listaDeDocumentos;
-
+    
     public InterfazPrincipal() {
         simulacion = new Simulacion();
-        funcion = new Funciones();
+        funcion = Funciones.getInstancia();
         tiempo = new Timer(10, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -57,8 +56,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         tiempo.start();
         initComponents();
     }
-    
-    
+
     private void actualizarEtiquetaTiempo() {
         String texto = funcion.actualizarEtiquetaTiempo();
         etiquetaTiempo.setText(texto);
@@ -204,7 +202,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 
         private void Modificar_documentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modificar_documentosActionPerformed
             // TODO add your handling code here:
-            Interfaz_Documentos v2 = new Interfaz_Documentos(listaDeDocumentos);
+            Interfaz_Documentos v2 = new Interfaz_Documentos();
             v2.setVisible(true);
             this.setVisible(false);
 
@@ -282,6 +280,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 //        jTextFieldIdentificador.setText("");
 //        jComboBoxPrioridad.setSelectedIndex(0);
 //    }
+    
     /**
      * @param args the command line arguments
      */

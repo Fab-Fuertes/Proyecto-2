@@ -14,17 +14,15 @@ import proyecto.Grafico.*;
  * @author fabys
  */
 public class Interfaz_Documentos extends javax.swing.JFrame {
-    public static MostrarLista lista;
 
 //    private Simulacion simulacion;
     
     /**
      * Creates new form Interfaz_Documentos
      */
-    public Interfaz_Documentos(MostrarLista listaDeDocumentos) {
+    public Interfaz_Documentos() {
 //        this.simulacion = simulacion;
         initComponents();
-        lista = listaDeDocumentos;
         setTitle("Modificar documento");
     }
 
@@ -108,14 +106,13 @@ public class Interfaz_Documentos extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         InterfazPrincipal a = new InterfazPrincipal();
-        a.listaDeDocumentos= lista;
         a.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Insertar_Documentos v2 = new Insertar_Documentos(lista);
+        Insertar_Documentos v2 = new Insertar_Documentos();
             v2.setVisible(true);
             this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -180,7 +177,7 @@ public class Interfaz_Documentos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Interfaz_Documentos(lista).setVisible(true);
+                new Interfaz_Documentos().setVisible(true);
             }
         });
     }

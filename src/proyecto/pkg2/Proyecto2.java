@@ -17,7 +17,7 @@ import javax.swing.Timer;
 public class Proyecto2 {
 
     public static Lista<Usuario> lista_usuarios = new Lista<Usuario>();
-    public static Funciones funciones = new Funciones();
+    public static Funciones funciones = Funciones.getInstancia();
 
     /**
      * @param args the command line arguments

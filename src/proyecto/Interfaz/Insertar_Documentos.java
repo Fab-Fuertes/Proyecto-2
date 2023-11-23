@@ -7,6 +7,7 @@ package proyecto.Interfaz;
 import proyecto.Estructuras.*;
 import proyecto.Grafico.*;
 import proyecto.pkg2.Proyecto2;
+import javax.swing.JOptionPane;
 /**
  *
  * @author fabys
@@ -16,15 +17,13 @@ public class Insertar_Documentos extends javax.swing.JFrame {
     
     Impresora impresora = new Impresora();
     Lista listaDeDocumentos = new Lista();
-    public static MostrarLista mostrar;
-    Interfaz_mostrar interfaz;
+   
 
     /**
      * Creates new form Insertar_Documentos
      */
-    public Insertar_Documentos(MostrarLista listaDeDocumentos) {
+    public Insertar_Documentos() {
         initComponents();
-        mostrar = listaDeDocumentos;
         setTitle("Insertar Documentos");
     }
 
@@ -141,7 +140,7 @@ public class Insertar_Documentos extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Interfaz_Documentos v2 = new Interfaz_Documentos(mostrar);
+        Interfaz_Documentos v2 = new Interfaz_Documentos();
             v2.setVisible(true);
             this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -152,24 +151,31 @@ public class Insertar_Documentos extends javax.swing.JFrame {
         String nombreUsuarios = Entrada1.getText();
         String nombreDocumento = Entrada2.getText();
         String tamañoDocumento = Entrada3.getText();
-        int tamaño = Integer.parseInt(tamañoDocumento);
+        int tamaño;
+        try {
+            tamaño = Integer.parseInt(tamañoDocumento);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "El tamaño del documento debe ser un número entero.");
+            return;
+        }
         String tipoDocumento = listaTipos.getSelectedItem().toString();
         Documento doc = new Documento(nombreDocumento,tamaño,tipoDocumento);
-        
-        
+
+        boolean usuarioEncontrado = false;
         for (Nodo_Lista<Usuario> pAux = Proyecto2.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getpNext()) {
             if(pAux.getData().getUsuario().equalsIgnoreCase(nombreUsuarios)){
                 doc.setPrioridad(pAux.getData().getPrioridad());
                 pAux.getData().agregarDocumento(doc);
-                mostrar.getListaDeDocumentos().InsertLast(doc);
-                mostrar.getLista().addNode(nombreUsuarios);
+               // mostrar.getListaDeDocumentos().InsertLast(doc);
+               // mostrar.getLista().addNode(nombreUsuarios);
                 pAux.getData().print();
-                Entrada1.setText("");
-                Entrada2.setText("");
-                Entrada3.setText("");
-            }else {
-                continue;
+               
             }
+        }
+   
+
+        if (!usuarioEncontrado) {
+            JOptionPane.showMessageDialog(null, "No se encontró un usuario con el nombre " + nombreUsuarios);
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -204,7 +210,7 @@ public class Insertar_Documentos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Insertar_Documentos(mostrar).setVisible(true);
+                new Insertar_Documentos().setVisible(true);
             }
         });
     }
