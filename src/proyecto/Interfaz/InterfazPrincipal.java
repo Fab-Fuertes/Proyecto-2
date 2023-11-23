@@ -35,18 +35,18 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form InterfazPrincipal
      */
+    
     private Timer tiempo;
     private Funciones funcion;
-    private int milisegundos = 0, segundos = 0, minutos = 0, horas = 0;
     private Simulacion simulacion;
     private JTextField jTextFieldIdentificador;
     private JComboBox<Prioridad> jComboBoxPrioridad;
     private JButton jButtonAgregarUsuario;
     MostrarLista listaDeDocumentos;
-
+    
     public InterfazPrincipal() {
         simulacion = new Simulacion();
-        funcion = new Funciones();
+        funcion = Funciones.getInstancia();
         tiempo = new Timer(10, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -57,8 +57,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         tiempo.start();
         initComponents();
     }
-    
-    
+
     private void actualizarEtiquetaTiempo() {
         String texto = funcion.actualizarEtiquetaTiempo();
         etiquetaTiempo.setText(texto);

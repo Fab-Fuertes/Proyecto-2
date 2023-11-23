@@ -24,11 +24,18 @@ import javax.swing.JOptionPane;
  */
 public class Funciones {
 	
-    private Timer tiempo;
-    private int milisegundos = 0;
-    private int segundos = 0;
-    private int minutos = 0;
-    private int horas = 0;
+    private static Funciones instancia = null;
+    private int milisegundos = 0, segundos = 0, minutos = 0, horas = 0;
+
+    private Funciones() {
+    }
+
+    public static Funciones getInstancia() {
+        if (instancia == null) {
+            instancia = new Funciones();
+        }
+        return instancia;
+    }
 
     public void leer_txt(File Reservas) {
         FileReader fr = null;
@@ -77,32 +84,27 @@ public class Funciones {
    
    
     
-        public void Cronometro() {
-            milisegundos ++;
-            if(milisegundos == 100){
-                segundos ++;
-                milisegundos = 0;
-            }
-            if(segundos == 60){
-                minutos ++;
-                segundos= 0;
-            }
-            if(minutos == 60){
-                horas ++;
-                minutos = 0;
-            }
-            if(horas ==24){
-                horas=0;
-            }
-            
-            actualizarEtiquetaTiempo();
-                
+    public void Cronometro() {
+        milisegundos++;
+        if (milisegundos == 100) {
+            segundos++;
+            milisegundos = 0;
         }
-        
-    
-	    
-    public String actualizarEtiquetaTiempo(){
-        String texto = (horas<= 9?"0":"")+horas+":"+(minutos<=9?"0":"")+minutos+":"+(segundos<=9?"0":"")+segundos+":"+(milisegundos<= 9?"0":"")+milisegundos ;
-   	return texto;
+        if (segundos == 60) {
+            minutos++;
+            segundos = 0;
+        }
+        if (minutos == 60) {
+            horas++;
+            minutos = 0;
+        }
+        if (horas == 24) {
+            horas = 0;
+        }
+    }
+
+    public String actualizarEtiquetaTiempo() {
+        String texto = (horas <= 9 ? "0" : "") + horas + ":" + (minutos <= 9 ? "0" : "") + minutos + ":" + (segundos <= 9 ? "0" : "") + segundos + ":" + (milisegundos <= 9 ? "0" : "") + milisegundos;
+        return texto;
     }
 }
