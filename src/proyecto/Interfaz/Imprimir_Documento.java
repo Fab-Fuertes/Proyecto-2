@@ -147,6 +147,7 @@ public class Imprimir_Documento extends javax.swing.JFrame {
 				for (Nodo_Lista<Documento> pAux_document = pAux.getData().getDocumentos().getpFirst(); pAux_document != null; pAux_document = pAux_document.getpNext()) {
 					if (ComboBox.getSelectedItem().equals(pAux_document.getData().getNombre())) {
                                             Documento documentoImprimir = pAux_document.getData();
+					    
                                             impresora.agregarDocumento (documentoImprimir);
                                             
 					}
