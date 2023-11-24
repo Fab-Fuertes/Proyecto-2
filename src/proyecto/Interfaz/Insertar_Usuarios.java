@@ -128,8 +128,7 @@ public class Insertar_Usuarios extends javax.swing.JFrame {
         System.out.println("Prioridad:" + datoPrioridad);
         Prioridad prioridadEnum = Prioridad.valueOf(datoPrioridad);
         Usuario usuario = new Usuario(datoNombre, prioridadEnum);
-        Proyecto2.lista_usuarios.InsertLast(usuario);
-      
+        Proyecto2.lista_usuarios.InsertLast(usuario);   
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

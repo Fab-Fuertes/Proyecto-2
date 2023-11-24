@@ -16,7 +16,6 @@ public class Insertar_Documentos extends javax.swing.JFrame {
     
     
     Impresora impresora = new Impresora();
-    Lista listaDeDocumentos = new Lista();
    
 
     /**
