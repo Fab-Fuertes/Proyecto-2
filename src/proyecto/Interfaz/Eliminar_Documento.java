@@ -142,23 +142,34 @@ public class Eliminar_Documento extends javax.swing.JFrame {
 
         private void eliminar_documentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminar_documentoActionPerformed
 		// TODO add your handling code here:
-		
+		for (Nodo_Lista<Documento> pAux = usuario_eliminar.getDocumentos().getpFirst(); pAux != null; pAux = pAux.getpNext()) {
+			if (pAux.getpNext() == usuario_eliminar.getDocumentos().getpLast()) {
+				if (pAux.getpNext().getData().getNombre().equalsIgnoreCase(ComboBox.getSelectedItem().toString())) {
+				pAux.setpNext(null);
+				}else{
+					break;
+				}
+			} else if (pAux.getpNext().getData().getNombre().equalsIgnoreCase(ComboBox.getSelectedItem().toString())) {
+				pAux.setpNext(pAux.getpNext().getpNext());
+			}
+		}
+
         }//GEN-LAST:event_eliminar_documentoActionPerformed
 
         private void buscar_documentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscar_documentosActionPerformed
 		// TODO add your handling code here:
 		ComboBox.removeAllItems();
 		usuario_eliminar = Proyecto2.simulacion.getUsuario(usuario_buscado.getText());
-		for(Nodo_Lista<Documento> pAux = usuario_eliminar.getDocumentos().getpFirst(); pAux != null; pAux = pAux.getpNext()) {
+		for (Nodo_Lista<Documento> pAux = usuario_eliminar.getDocumentos().getpFirst(); pAux != null; pAux = pAux.getpNext()) {
 			ComboBox.addItem(pAux.getData().getNombre());
 		}
         }//GEN-LAST:event_buscar_documentosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        Interfaz_Documentos v2 = new Interfaz_Documentos();
-            v2.setVisible(true);
-            this.setVisible(false);
+	    // TODO add your handling code here:
+	    Interfaz_Documentos v2 = new Interfaz_Documentos();
+	    v2.setVisible(true);
+	    this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
 	/**
