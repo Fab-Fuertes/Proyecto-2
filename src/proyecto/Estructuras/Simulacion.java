@@ -26,7 +26,7 @@ public class Simulacion {
     public void enviarDocumento(String identificador, Documento documento) {
         Usuario usuario = usuarios.get(identificador);
         if (usuario != null) {
-            impresora.agregarDocumentoCola(documento);
+            impresora.agregarDocumento(documento);
         }
     }
     
@@ -34,7 +34,7 @@ public class Simulacion {
         Usuario usuario = usuarios.get(identificadorUsuario);
         if (usuario != null) {
             Documento documento = usuario.getDocumento(indexDocumento);
-            impresora.agregarDocumentoCola(documento);
+            impresora.agregarDocumento(documento);
         }
     }
     

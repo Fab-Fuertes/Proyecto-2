@@ -89,6 +89,7 @@ public class Funciones {
         if (milisegundos == 100) {
             segundos++;
             milisegundos = 0;
+            
         }
         if (segundos == 60) {
             minutos++;
@@ -106,5 +107,10 @@ public class Funciones {
     public String actualizarEtiquetaTiempo() {
         String texto = (horas <= 9 ? "0" : "") + horas + ":" + (minutos <= 9 ? "0" : "") + minutos + ":" + (segundos <= 9 ? "0" : "") + segundos + ":" + (milisegundos <= 9 ? "0" : "") + milisegundos;
         return texto;
+    }
+    
+    
+    public int obtenerTiempoActualMinutos() {
+        return minutos;
     }
 }

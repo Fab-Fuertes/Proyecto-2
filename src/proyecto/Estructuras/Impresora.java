@@ -22,15 +22,6 @@ public class Impresora {
         this.listaDeDocumentos = new Lista<Documento>();
     }
 
-
-    public void agregarDocumentoCola(Documento doc) {
-        colaDeImpresion.insert(doc);
-    }
-    
-    public void agregarDocumentoLista(Documento doc){
-        listaDeDocumentos.InsertLast(doc);
-    }
-
     public void agregarDocumento(Documento doc) { 
         colaDeImpresion.insert(doc);
         documentosPorUsuario.put(doc.getNombre(), doc);
