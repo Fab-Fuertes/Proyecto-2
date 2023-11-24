@@ -16,7 +16,6 @@ import proyecto.pkg2.Proyecto2;
  */
 public class Insertar_Usuarios extends javax.swing.JFrame {
     
-    Simulacion simulacion = new Simulacion();
 
     /**
      * Creates new form Innsertar_Usuarios
@@ -127,7 +126,7 @@ public class Insertar_Usuarios extends javax.swing.JFrame {
         String datoPrioridad = listaPrioridades.getSelectedItem().toString();
         System.out.println("Prioridad:" + datoPrioridad);
         Prioridad valorEnum = Prioridad.valueOf(datoPrioridad);
-        simulacion.agregarUsuario(datoNombre, valorEnum);
+        Proyecto2.simulacion.agregarUsuario(datoNombre, valorEnum);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

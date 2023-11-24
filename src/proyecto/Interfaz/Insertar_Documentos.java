@@ -147,7 +147,7 @@ public class Insertar_Documentos extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-        String nombreUsuarios = Entrada1.getText();
+        String nombreUsuario = Entrada1.getText();
         String nombreDocumento = Entrada2.getText();
         String tamañoDocumento = Entrada3.getText();
         int tamaño;
@@ -159,24 +159,7 @@ public class Insertar_Documentos extends javax.swing.JFrame {
         }
         String tipoDocumento = listaTipos.getSelectedItem().toString();
         Documento doc = new Documento(nombreDocumento,tamaño,tipoDocumento);
-
-        boolean usuarioEncontrado = false;
-        for (Nodo_Lista<Usuario> pAux = Proyecto2.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getpNext()) {
-            if(pAux.getData().getUsuario().equalsIgnoreCase(nombreUsuarios)){
-                doc.setPrioridad(pAux.getData().getPrioridad());
-                pAux.getData().agregarDocumento(doc);
-               // mostrar.getListaDeDocumentos().InsertLast(doc);
-               // mostrar.getLista().addNode(nombreUsuarios);
-                pAux.getData().print();
-               
-            }
-        }
-   
-
-        if (!usuarioEncontrado) {
-            JOptionPane.showMessageDialog(null, "No se encontró un usuario con el nombre " + nombreUsuarios);
-        }
-        
+	Proyecto2.simulacion.getUsuario(nombreUsuario).getDocumentos().InsertLast(doc);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

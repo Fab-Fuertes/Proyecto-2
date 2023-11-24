@@ -94,17 +94,7 @@ public class Eliminar_Usuarios extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        for(Nodo_Lista<Usuario> pAux = Proyecto2.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getpNext()) {
-		if(pAux.getData().getUsuario().equalsIgnoreCase(usuario_eliminar.getText())) {
-			Nodo_Lista nodo_movimiento = pAux.getpNext().getpNext();
-			pAux.setpNext(nodo_movimiento);
-			System.out.println("Eliminación Exitosa");
-			break;
-		}else if(pAux.getpNext() == null) {
-			JOptionPane.showMessageDialog(rootPane, "No se encontro el usuario en nuestra base!");
-		}
-		
-	}	
+	Proyecto2.simulacion.eliminarUsuario(usuario_eliminar.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void usuario_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuario_eliminarActionPerformed

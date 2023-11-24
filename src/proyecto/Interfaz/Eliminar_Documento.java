@@ -17,7 +17,7 @@ public class Eliminar_Documento extends javax.swing.JFrame {
 	/**
 	 * Creates new form Eliminar_Documento
 	 */
-	private String usuario_eliminar;
+	private Usuario usuario_eliminar;
 
 	public Eliminar_Documento() {
 		initComponents();
@@ -142,34 +142,15 @@ public class Eliminar_Documento extends javax.swing.JFrame {
 
         private void eliminar_documentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminar_documentoActionPerformed
 		// TODO add your handling code here:
-		for (Nodo_Lista<Usuario> pAux = Proyecto2.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getpNext()) {
-			if (pAux.getData().getUsuario().equalsIgnoreCase(usuario_eliminar)) {
-				for (Nodo_Lista<Documento> pAux_document = pAux.getData().getDocumentos().getpFirst(); pAux_document != null; pAux_document = pAux_document.getpNext()) {
-					if (ComboBox.getSelectedItem().equals(pAux_document.getData().getNombre())) {
-						Nodo_Lista nodo_movimiento = pAux_document.getpNext().getpNext();
-						pAux_document.setpNext(nodo_movimiento);
-						System.out.println("Eliminación Exitosa");
-						ComboBox.removeAllItems();
-						break;
-					}
-				}
-				break;
-			}
-		}
+		
         }//GEN-LAST:event_eliminar_documentoActionPerformed
 
         private void buscar_documentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscar_documentosActionPerformed
 		// TODO add your handling code here:
 		ComboBox.removeAllItems();
-		for (Nodo_Lista<Usuario> pAux = Proyecto2.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getpNext()) {
-			if (pAux.getData().getUsuario().equalsIgnoreCase(usuario_buscado.getText())) {
-				usuario_eliminar = pAux.getData().getUsuario();
-				for (Nodo_Lista<Documento> pAux_document = pAux.getData().getDocumentos().getpFirst(); pAux_document != null; pAux_document = pAux_document.getpNext()) {
-					String documento = pAux_document.getData().getNombre();
-					ComboBox.addItem(documento);
-				}
-				break;
-			}
+		usuario_eliminar = Proyecto2.simulacion.getUsuario(usuario_buscado.getText());
+		for(Nodo_Lista<Documento> pAux = usuario_eliminar.getDocumentos().getpFirst(); pAux != null; pAux = pAux.getpNext()) {
+			ComboBox.addItem(pAux.getData().getNombre());
 		}
         }//GEN-LAST:event_buscar_documentosActionPerformed
 

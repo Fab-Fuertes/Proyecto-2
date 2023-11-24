@@ -18,8 +18,7 @@ public class Proyecto2 {
 
     public static Lista<Usuario> lista_usuarios = new Lista<Usuario>();
     public static Funciones funciones = Funciones.getInstancia();
-    public static HashTable<String, Usuario>  hash_usuarios = new HashTable<String, Usuario>(300);
-
+    public static Simulacion simulacion = new Simulacion();
     /**
      * @param args the command line arguments
      */

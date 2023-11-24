@@ -66,7 +66,7 @@ public class Funciones {
                         try {
                             String prioridad = arreglo[1].split("_")[1].toUpperCase();
                             Usuario u = new Usuario(arreglo[0], Prioridad.valueOf(prioridad));
-                            Proyecto2.hash_usuarios.put(count.toString(), u);
+                            Proyecto2.simulacion.agregarUsuario(u.getUsuario(), u.getPrioridad());
                         } catch (IllegalArgumentException e) {
                             System.out.println("Prioridad no válida para el usuario: " + arreglo[0]);
                         }
