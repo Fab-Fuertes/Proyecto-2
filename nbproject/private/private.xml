@@ -2,34 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-        <group/>
-=======
         <group>
-            <file>file:/C:/Users/cehernandez/Desktop/Proyecto2.0/Proyecto-2/src/proyecto/Estructuras/HashTable.java</file>
-            <file>file:/C:/Users/cehernandez/Desktop/Proyecto2.0/Proyecto-2/src/proyecto/Interfaz/InterfazPrincipal.java</file>
-            <file>file:/C:/Users/cehernandez/Desktop/Proyecto2.0/Proyecto-2/src/proyecto/Estructuras/Usuario.java</file>
-            <file>file:/C:/Users/cehernandez/Desktop/Proyecto2.0/Proyecto-2/src/proyecto/Estructuras/Documento.java</file>
-            <file>file:/C:/Users/cehernandez/Desktop/Proyecto2.0/Proyecto-2/src/proyecto/Interfaz/Interfaz_Documentos.java</file>
-            <file>file:/C:/Users/cehernandez/Desktop/Proyecto2.0/Proyecto-2/src/proyecto/Interfaz/Interfaz_mostrar.java</file>
-            <file>file:/C:/Users/cehernandez/Desktop/Proyecto2.0/Proyecto-2/src/proyecto/Interfaz/Interfaz_Usuarios.java</file>
-            <file>file:/C:/Users/cehernandez/Desktop/Proyecto2.0/Proyecto-2/src/proyecto/Estructuras/Prioridad.java</file>
-            <file>file:/C:/Users/cehernandez/Desktop/Proyecto2.0/Proyecto-2/src/proyecto/Grafico/Mostrar.java</file>
-            <file>file:/C:/Users/cehernandez/Desktop/Proyecto2.0/Proyecto-2/src/proyecto/Interfaz/Eliminar_Documento.java</file>
-            <file>file:/C:/Users/cehernandez/Desktop/Proyecto2.0/Proyecto-2/src/proyecto/Interfaz/Insertar_Documentos.java</file>
-            <file>file:/C:/Users/cehernandez/Desktop/Proyecto2.0/Proyecto-2/src/proyecto/Interfaz/Insertar_Usuarios.java</file>
-            <file>file:/C:/Users/cehernandez/Desktop/Proyecto2.0/Proyecto-2/src/proyecto/Estructuras/Lista.java</file>
-            <file>file:/C:/Users/cehernandez/Desktop/Proyecto2.0/Proyecto-2/src/proyecto/Interfaz/Eliminar_Usuarios.java</file>
-            <file>file:/C:/Users/cehernandez/Desktop/Proyecto2.0/Proyecto-2/src/proyecto/Estructuras/Nodo_Arbol.java</file>
-            <file>file:/C:/Users/cehernandez/Desktop/Proyecto2.0/Proyecto-2/src/proyecto/Funciones/Funciones.java</file>
-            <file>file:/C:/Users/cehernandez/Desktop/Proyecto2.0/Proyecto-2/src/proyecto/Grafico/MostrarLista.java</file>
-            <file>file:/C:/Users/cehernandez/Desktop/Proyecto2.0/Proyecto-2/src/proyecto/Estructuras/Nodo_Lista.java</file>
-            <file>file:/C:/Users/cehernandez/Desktop/Proyecto2.0/Proyecto-2/src/proyecto/Estructuras/Simulacion.java</file>
-            <file>file:/C:/Users/cehernandez/Desktop/Proyecto2.0/Proyecto-2/src/proyecto/Grafico/MostrarArbol.java</file>
-            <file>file:/C:/Users/cehernandez/Desktop/Proyecto2.0/Proyecto-2/src/proyecto/Estructuras/Impresora.java</file>
-            <file>file:/C:/Users/cehernandez/Desktop/Proyecto2.0/Proyecto-2/src/proyecto/Estructuras/MinHeap.java</file>
-            <file>file:/C:/Users/cehernandez/Desktop/Proyecto2.0/Proyecto-2/src/proyecto/pkg2/Proyecto2.java</file>
+            <file>file:/home/truenno/Proyecto-2/src/proyecto/Funciones/Funciones.java</file>
+            <file>file:/home/truenno/Proyecto-2/src/proyecto/Estructuras/Impresora.java</file>
+            <file>file:/home/truenno/Proyecto-2/src/proyecto/Estructuras/HashTable.java</file>
+            <file>file:/home/truenno/Proyecto-2/src/proyecto/Estructuras/Usuario.java</file>
+            <file>file:/home/truenno/Proyecto-2/src/proyecto/Interfaz/Imprimir_Documento.java</file>
+            <file>file:/home/truenno/Proyecto-2/src/proyecto/Interfaz/InterfazPrincipal.java</file>
+            <file>file:/home/truenno/Proyecto-2/src/proyecto/Estructuras/MinHeap.java</file>
         </group>
->>>>>>> c1a2e927c593dee7dd543aeee5bd0682806195b6
     </open-files>
 </project-private>

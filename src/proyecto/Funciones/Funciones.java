@@ -50,6 +50,7 @@ public class Funciones {
     public void leer_txt(File Reservas) {
         FileReader fr = null;
         BufferedReader br = null;
+        Integer count = 0;
 
         try {
             fr = new FileReader(Reservas);
@@ -59,12 +60,13 @@ public class Funciones {
 
             while ((linea = br.readLine()) != null) {
                 String arreglo[] = linea.split(",");
+	count++;
                 if (arreglo.length >= 2) {
                     if (!arreglo[0].equalsIgnoreCase("usuario")) {
                         try {
                             String prioridad = arreglo[1].split("_")[1].toUpperCase();
                             Usuario u = new Usuario(arreglo[0], Prioridad.valueOf(prioridad));
-                            Proyecto2.lista_usuarios.InsertLast(u);
+                            Proyecto2.hash_usuarios.put(count.toString(), u);
                         } catch (IllegalArgumentException e) {
                             System.out.println("Prioridad no válida para el usuario: " + arreglo[0]);
                         }
