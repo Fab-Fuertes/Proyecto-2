@@ -17,6 +17,14 @@ import javax.swing.Timer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import org.graphstream.graph.*;
+import org.graphstream.graph.implementations.*;
+import java.awt.HeadlessException;
+import java.util.Locale;
+import javax.swing.JOptionPane;
+import org.graphstream.ui.view.Viewer;
+import org.graphstream.algorithm.ConnectedComponents;
+import java.util.Random;
 
 /**
  *
@@ -25,6 +33,7 @@ import javax.swing.JOptionPane;
 public class Funciones {
 	
     private static Funciones instancia = null;
+    public static Graph grafo = new SingleGraph("usuarios");
     private int milisegundos = 0, segundos = 0, minutos = 0, horas = 0;
 
     private Funciones() {
@@ -112,5 +121,27 @@ public class Funciones {
     
     public int obtenerTiempoActualMinutos() {
         return minutos;
+    }
+ 
+    public void mostrar_usuarios() {
+	    for( Nodo_Lista<Usuario> pAux =  Proyecto2.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getpNext()) {
+		    String usuario = pAux.getData().getUsuario();
+		    Prioridad prioridad = pAux.getData().getPrioridad();
+		    String usuario_insertar = "Usuario: " + usuario + " \nPrioridad: " + prioridad;
+		    grafo.addNode(usuario_insertar);
+		    for(Nodo_Lista<Documento> pAux_documento = pAux.getData().getDocumentos().getpFirst(); pAux_documento != null; pAux_documento = pAux_documento.getpNext()) {
+			    String nombre = pAux_documento.getData().getNombre();
+			    int size = pAux_documento.getData().getTamaño();
+			    String tipo = pAux_documento.getData().getTipo();
+			    String documento_insertar = "Nombre: " + nombre + "\nTamaño: " + size + "\nTipo: " + tipo;
+			    grafo.addNode(documento_insertar);
+			    grafo.addEdge(usuario_insertar+documento_insertar, usuario_insertar, documento_insertar);
+		    }
+		    
+		    
+	    }
+			    System.setProperty("org.graphstream.ui.renderer",
+                    "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
+			    grafo.display();
     }
 }

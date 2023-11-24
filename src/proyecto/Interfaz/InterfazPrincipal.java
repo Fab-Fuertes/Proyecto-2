@@ -197,6 +197,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         if (seleccionar == JFileChooser.APPROVE_OPTION) {
             File Reservas = seleccionarArchivo.getSelectedFile();
             Proyecto2.funciones.leer_txt(Reservas);
+            Proyecto2.funciones.mostrar_usuarios();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
