@@ -26,6 +26,7 @@ import org.graphstream.ui.view.Viewer;
 import org.graphstream.algorithm.ConnectedComponents;
 import java.util.Random;
 
+
 /**
  *
  * @author truenno
@@ -140,8 +141,9 @@ public class Funciones {
 		    
 		    
 	    }
-			    System.setProperty("org.graphstream.ui.renderer",
-                    "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
+//			    System.setProperty("org.graphstream.ui.renderer",
+//                    "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
+                            System.setProperty("org.graphstream.ui", "swing");
 			    grafo.display();
     }
 }

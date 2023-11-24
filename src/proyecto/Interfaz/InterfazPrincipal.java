@@ -55,6 +55,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         });
         tiempo.start();
         initComponents();
+        System.setProperty("org.graphstream.ui", "swing");
     }
 
     private void actualizarEtiquetaTiempo() {
