@@ -143,7 +143,6 @@ public class Eliminar_Documento extends javax.swing.JFrame {
 
         private void eliminar_documentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminar_documentoActionPerformed
 		// TODO add your handling code here:
-ComboBox.removeAllItems();
 		usuario_eliminar = Proyecto2.simulacion.getUsuario(usuario_buscado.getText());
 		for (Nodo_Lista<Documento> pAux = usuario_eliminar.getDocumentos().getpFirst(); pAux != null; pAux = pAux.getpNext()) {
 			ComboBox.addItem(pAux.getData().getNombre());
@@ -151,6 +150,7 @@ ComboBox.removeAllItems();
 		if (ComboBox.getItemCount() == 0) {	
            			 JOptionPane.showMessageDialog(null, "El Usuario no cuenta con documentos");
 		}
+ComboBox.removeAllItems();
         }//GEN-LAST:event_eliminar_documentoActionPerformed
 
         private void buscar_documentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscar_documentosActionPerformed
