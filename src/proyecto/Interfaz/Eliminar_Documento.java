@@ -145,10 +145,9 @@ public class Eliminar_Documento extends javax.swing.JFrame {
 		// TODO add your handling code here:
 		usuario_eliminar = Proyecto2.simulacion.getUsuario(usuario_buscado.getText());
 		for (Nodo_Lista<Documento> pAux = usuario_eliminar.getDocumentos().getpFirst(); pAux != null; pAux = pAux.getpNext()) {
-			ComboBox.addItem(pAux.getData().getNombre());
-		}
-		if (ComboBox.getItemCount() == 0) {	
-           			 JOptionPane.showMessageDialog(null, "El Usuario no cuenta con documentos");
+			if (pAux.getData().getNombre() == ComboBox.getSelectedItem()) {
+				usuario_eliminar.getDocumentos().remove(pAux.getData());
+			}
 		}
 ComboBox.removeAllItems();
         }//GEN-LAST:event_eliminar_documentoActionPerformed
@@ -159,6 +158,9 @@ ComboBox.removeAllItems();
 		usuario_eliminar = Proyecto2.simulacion.getUsuario(usuario_buscado.getText());
 		for (Nodo_Lista<Documento> pAux = usuario_eliminar.getDocumentos().getpFirst(); pAux != null; pAux = pAux.getpNext()) {
 			ComboBox.addItem(pAux.getData().getNombre());
+		}
+		if (ComboBox.getItemCount() == 0) {	
+           			 JOptionPane.showMessageDialog(null, "El Usuario no cuenta con documentos");
 		}
         }//GEN-LAST:event_buscar_documentosActionPerformed
 
