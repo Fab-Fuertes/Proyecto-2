@@ -159,7 +159,15 @@ public class Insertar_Documentos extends javax.swing.JFrame {
         }
         String tipoDocumento = listaTipos.getSelectedItem().toString();
         Documento doc = new Documento(nombreDocumento,tamaño,tipoDocumento);
+try{
 	Proyecto2.simulacion.getUsuario(nombreUsuario).getDocumentos().InsertLast(doc);
+	}catch (Exception e) {
+           		JOptionPane.showMessageDialog(null, "El usuario no existe!");
+			return;
+	}
+	
+           	JOptionPane.showMessageDialog(null, "Documento insertado exitosamente");
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
