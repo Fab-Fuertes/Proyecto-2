@@ -49,7 +49,7 @@ public class Interfaz_Usuarios extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Operaciones de Usuario");
+        jLabel1.setText("    (•• ᴏᴘᴇʀᴀᴄɪᴏɴᴇꜱ ᴅᴇ ᴜꜱᴜᴀʀɪᴏ ••)");
 
         Regresar.setText("Regresar");
         Regresar.addActionListener(new java.awt.event.ActionListener() {
@@ -65,16 +65,16 @@ public class Interfaz_Usuarios extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addComponent(Regresar))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton2)
                                 .addGap(36, 36, 36)
-                                .addComponent(jButton1)))))
+                                .addComponent(jButton1))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(Regresar)))
                 .addContainerGap(66, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
