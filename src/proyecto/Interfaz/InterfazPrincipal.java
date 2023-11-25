@@ -85,6 +85,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/carga-en-la-nube.png.36x36.png"))); // NOI18N
         jButton1.setText("Cargar Usuarios");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +96,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
         jLabel1.setText("Sistema de Impresión ");
 
+        Agregar_usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/editar.png.36x36.png"))); // NOI18N
         Agregar_usuario.setText("Modificar Usuarios");
         Agregar_usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +104,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
             }
         });
 
+        Modificar_documentos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/escritura.png.36x36.png"))); // NOI18N
         Modificar_documentos.setText("Modificar Documentos");
         Modificar_documentos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,6 +112,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
             }
         });
 
+        Modificar_documentos1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ver-grafico.png.36x36.png"))); // NOI18N
         Modificar_documentos1.setText("Ver cola de Impresión");
         Modificar_documentos1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,6 +130,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         etiquetaTiempo.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         etiquetaTiempo.setText("00:00:00:00");
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imprimir.png.36x36.png"))); // NOI18N
         jButton2.setText("Mandar a imprimir ");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -176,7 +181,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 .addComponent(Modificar_documentos1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Modificar_documentos2)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
