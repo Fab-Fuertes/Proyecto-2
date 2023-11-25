@@ -145,7 +145,7 @@ public class Imprimir_Documento extends javax.swing.JFrame {
     usuario_imprimir = Proyecto2.simulacion.getUsuario(usuario_buscado.getText());
 		for (Nodo_Lista<Documento> pAux = usuario_imprimir.getDocumentos().getpFirst(); pAux != null; pAux = pAux.getpNext()) {
 			if (pAux.getData().getNombre() == ComboBox.getSelectedItem()) {
-                                usuario_imprimir.getDocumentos().InsertLast(pAux.getData());
+                                Proyecto2.simulacion.enviarDocumento(usuario_imprimir.getUsuario(), pAux.getData());
 			}
 		}
             ComboBox.removeAllItems();

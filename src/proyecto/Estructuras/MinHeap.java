@@ -24,6 +24,7 @@ public class MinHeap {
         heap.InsertLast(doc);
         int index = heap.getSize() - 1;
         int parent = (index - 1) / 2;
+        System.out.println(index);
 
         while (parent >= 0 && heap.searchByIndex(parent).getData().getPrioridad().ordinal() > heap.searchByIndex(index).getData().getPrioridad().ordinal()) {
             // Intercambiar elementos manualmente
