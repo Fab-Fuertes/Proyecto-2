@@ -14,14 +14,14 @@ import proyecto.Estructuras.*;
 public class Documento {
     
    
-    private Prioridad prioridad;
+    private int prioridad;
     private String nombre;
     private int tamaño;
     private String tipo;
     private String tiempo;
     private boolean exists;
 
-    public Documento(Prioridad prioridad, String nombre, int tamaño, String tipo) {
+    public Documento(int prioridad, String nombre, int tamaño, String tipo) {
         this.prioridad = prioridad;
         this.nombre = nombre;
         this.tamaño = tamaño;
@@ -34,11 +34,11 @@ public class Documento {
         this.tipo = tipo;
     }
 
-    public Prioridad getPrioridad() {
+    public int getPrioridad() {
         return prioridad;
     }
 
-    public void setPrioridad(Prioridad prioridad) {
+    public void setPrioridad(int prioridad) {
         this.prioridad = prioridad;
     }
 

@@ -25,8 +25,7 @@ public class MinHeap {
         int index = heap.getSize() - 1;
         int parent = (index - 1) / 2;
         System.out.println(index);
-
-        while (parent >= 0 && heap.searchByIndex(parent).getData().getPrioridad().ordinal() > heap.searchByIndex(index).getData().getPrioridad().ordinal()) {
+        while (parent >= 0 && heap.searchByIndex(parent).getData().getPrioridad() > heap.searchByIndex(index).getData().getPrioridad()) {
             // Intercambiar elementos manualmente
             Documento temp = heap.searchByIndex(parent).getData();
             heap.searchByIndex(parent).setData(heap.searchByIndex(index).getData());
@@ -67,11 +66,11 @@ public class MinHeap {
         int right = 2 * index + 2;
         int smallest = index;
 
-        if (left < heap.getSize() && heap.searchByIndex(left).getData().getPrioridad().ordinal() < heap.searchByIndex(smallest).getData().getPrioridad().ordinal()) {
+        if (left < heap.getSize() && heap.searchByIndex(left).getData().getPrioridad() < heap.searchByIndex(smallest).getData().getPrioridad()) {
             smallest = left;
         }
 
-        if (right < heap.getSize() && heap.searchByIndex(right).getData().getPrioridad().ordinal() < heap.searchByIndex(smallest).getData().getPrioridad().ordinal()) {
+        if (right < heap.getSize() && heap.searchByIndex(right).getData().getPrioridad() < heap.searchByIndex(smallest).getData().getPrioridad()) {
             smallest = right;
         }
 

@@ -19,7 +19,7 @@ public class Simulacion {
         impresora = new Impresora();
     }
 
-    public void agregarUsuario(String identificador, Prioridad prioridad) {
+    public void agregarUsuario(String identificador, int prioridad) {
         Usuario usuario = new Usuario(identificador, prioridad);
         usuarios.put(identificador, usuario);
     }
@@ -55,7 +55,7 @@ public class Simulacion {
     public void crearDocumento(String identificadorUsuario, String nombre, int tamaño, String tipo) {
         Usuario usuario = usuarios.get(identificadorUsuario);
         if (usuario != null) {
-            Prioridad prioridad = usuario.getPrioridad();
+            int prioridad = usuario.getPrioridad();
             Documento documento = new Documento(prioridad, nombre, tamaño, tipo);
             usuario.agregarDocumento(documento);
         }

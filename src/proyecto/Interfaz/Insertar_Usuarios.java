@@ -10,6 +10,7 @@ import proyecto.Estructuras.HashTable;
 import proyecto.Estructuras.Simulacion;
 import proyecto.Estructuras.Usuario;
 import proyecto.Estructuras.Prioridad;
+import proyecto.Funciones.Funciones;
 import proyecto.pkg2.Proyecto2;
 
 /**
@@ -143,8 +144,8 @@ public class Insertar_Usuarios extends javax.swing.JFrame {
         String nombre = Entrada1.getText();
         String datoPrioridad = listaPrioridades.getSelectedItem().toString();
         System.out.println("Prioridad:" + datoPrioridad);
-        Prioridad valorEnum = Prioridad.valueOf(datoPrioridad);
-        Proyecto2.simulacion.agregarUsuario(nombre, valorEnum);
+        Funciones func = new Funciones();
+        func.crear_usuario(datoPrioridad, nombre);
         Salida.setText(Proyecto2.simulacion.usartoString());
         
     }//GEN-LAST:event_jButton1ActionPerformed

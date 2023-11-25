@@ -11,10 +11,10 @@ package proyecto.Estructuras;
  */
 public class Usuario {
     private String usuario;
-    private Prioridad prioridad;
+    private int prioridad;
     private Lista<Documento> documentos;
     
-    public Usuario(String usuario, Prioridad prioridad){
+    public Usuario(String usuario, int prioridad){
         this.usuario = usuario;
         this.prioridad = prioridad;
         this.documentos = new Lista<>();
@@ -52,11 +52,11 @@ public class Usuario {
         System.out.println("Usuario: " + this.usuario + " // Prioridad:" + this.prioridad);
     }    
     
-    public Prioridad getPrioridad() {
+    public int getPrioridad() {
         return prioridad;
     }
 
-    public void setPrioridad(Prioridad prioridad) {
+    public void setPrioridad(int prioridad) {
         this.prioridad = prioridad;
     }
 

@@ -33,11 +33,14 @@ import java.util.Random;
  */
 public class Funciones {
 	
-    private static Funciones instancia = null;
+    public static Funciones instancia = null;
     public static Graph grafo = new SingleGraph("usuarios");
     private int milisegundos = 0, segundos = 0, minutos = 0, horas = 0;
-
-    private Funciones() {
+    public static int priority_high = 0;
+    public static int priority_medium = 1000;
+    public static int priority_low = 10000;
+   
+    public Funciones() {
     }
 
     public static Funciones getInstancia() {
@@ -65,8 +68,8 @@ public class Funciones {
                     if (!arreglo[0].equalsIgnoreCase("usuario")) {
                         try {
                             String prioridad = arreglo[1].split("_")[1].toUpperCase();
-                            Usuario u = new Usuario(arreglo[0], Prioridad.valueOf(prioridad));
-                            Proyecto2.simulacion.agregarUsuario(u.getUsuario(), u.getPrioridad());
+                            System.out.println(prioridad);
+                            crear_usuario(prioridad, arreglo[0]);
                         } catch (IllegalArgumentException e) {
                             System.out.println("Prioridad no válida para el usuario: " + arreglo[0]);
                         }
@@ -124,28 +127,24 @@ public class Funciones {
     
     public int obtenerTiempoActualMinutos() {
         return minutos;
-    }
- 
-    public void mostrar_usuarios() {
-	    for( Nodo_Lista<Usuario> pAux =  Proyecto2.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getpNext()) {
-		    String usuario = pAux.getData().getUsuario();
-		    Prioridad prioridad = pAux.getData().getPrioridad();
-		    String usuario_insertar = "Usuario: " + usuario + " \nPrioridad: " + prioridad;
-		    grafo.addNode(usuario_insertar);
-		    for(Nodo_Lista<Documento> pAux_documento = pAux.getData().getDocumentos().getpFirst(); pAux_documento != null; pAux_documento = pAux_documento.getpNext()) {
-			    String nombre = pAux_documento.getData().getNombre();
-			    int size = pAux_documento.getData().getTamaño();
-			    String tipo = pAux_documento.getData().getTipo();
-			    String documento_insertar = "Nombre: " + nombre + "\nTamaño: " + size + "\nTipo: " + tipo;
-			    grafo.addNode(documento_insertar);
-			    grafo.addEdge(usuario_insertar+documento_insertar, usuario_insertar, documento_insertar);
-		    }
-		    
-		    
-	    }
-//			    System.setProperty("org.graphstream.ui.renderer",
-//                    "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
-                            System.setProperty("org.graphstream.ui", "swing");
-			    grafo.display();
-    }
+    }	  
+    
+    public void crear_usuario(String prioridad, String nombre) {
+        
+      if (prioridad.equals("ALTA")){
+                                Usuario u = new Usuario(nombre, priority_high);
+                                Proyecto2.simulacion.agregarUsuario(u.getUsuario(), u.getPrioridad());
+                                priority_high++;
+                            }if (prioridad.equals("MEDIA")){
+                                Usuario u = new Usuario(nombre, priority_medium);
+                                Proyecto2.simulacion.agregarUsuario(u.getUsuario(), u.getPrioridad());
+                                priority_medium++;
+                            }if (prioridad.equals("BAJA")){
+                                  Usuario u = new Usuario(nombre, priority_low);
+                                Proyecto2.simulacion.agregarUsuario(u.getUsuario(), u.getPrioridad());
+                                priority_low++;
+                              }
+}
+//			 
+    
 }
