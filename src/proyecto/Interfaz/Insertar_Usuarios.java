@@ -145,7 +145,7 @@ public class Insertar_Usuarios extends javax.swing.JFrame {
         System.out.println("Prioridad:" + datoPrioridad);
         Prioridad valorEnum = Prioridad.valueOf(datoPrioridad);
         Proyecto2.simulacion.agregarUsuario(nombre, valorEnum);
-        Salida.setText(Proyecto2.simulacion.usartoString(nombre));
+        Salida.setText(Proyecto2.simulacion.usartoString());
         
     }//GEN-LAST:event_jButton1ActionPerformed
     

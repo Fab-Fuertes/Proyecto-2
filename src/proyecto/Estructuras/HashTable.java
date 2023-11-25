@@ -48,16 +48,14 @@ public class HashTable<K, V> {
     
         public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-
-        stringBuilder.append("Contenido de la HashTable:\n");
+        stringBuilder.append("Usuarios registrados:\n");
 
         for (int i = 0; i < tamaño; i++) {
             if (tabla[i] != null) {
-                stringBuilder.append("Bucket ").append(i).append(": ");
 
                 Entry<K, V> entry = tabla[i];
                 while (entry != null) {
-                    stringBuilder.append("Key: ").append(entry.llave).append(", Value: ").append(entry.valor).append(" | ");
+                    stringBuilder.append("Usuario: ").append(entry.llave).append(", Prioridad: ").append( entry.valor).append(" | ");
                     entry = entry.siguiente;
                 }
 

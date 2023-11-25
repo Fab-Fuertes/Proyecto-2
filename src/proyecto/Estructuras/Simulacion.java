@@ -24,7 +24,7 @@ public class Simulacion {
         usuarios.put(identificador, usuario);
     }
     
-    public String usartoString(String identificador){
+    public String usartoString(){
         return usuarios.toString();
         
     }
