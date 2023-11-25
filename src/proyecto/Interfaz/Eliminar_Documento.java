@@ -151,7 +151,7 @@ public class Eliminar_Documento extends javax.swing.JFrame {
 				usuario_eliminar.getDocumentos().remove(pAux.getData());
 			}
 		}
-ComboBox.removeAllItems();
+                ComboBox.removeAllItems();
         }//GEN-LAST:event_eliminar_documentoActionPerformed
 
         private void buscar_documentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscar_documentosActionPerformed
