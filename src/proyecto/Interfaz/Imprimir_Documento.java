@@ -19,7 +19,6 @@ import static proyecto.pkg2.Proyecto2.funciones;
 public class Imprimir_Documento extends javax.swing.JFrame {
     
     private Usuario usuario_imprimir;
-    Impresora impresora = new Impresora();
 
     /**
      * Creates new form Imprimir_Documento
@@ -50,7 +49,7 @@ public class Imprimir_Documento extends javax.swing.JFrame {
 
         jLabel1.setText("Nombre del usuarios:");
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png.48x48.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png.36x36.png"))); // NOI18N
         jButton1.setText("Buscar Documentos");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,7 +61,7 @@ public class Imprimir_Documento extends javax.swing.JFrame {
 
         ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imprimir.png.48x48.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imprimir.png.36x36.png"))); // NOI18N
         jButton2.setText("Imprimir");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +69,7 @@ public class Imprimir_Documento extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salida.png.36x36.png"))); // NOI18N
         jButton3.setText("Regresar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,10 +90,10 @@ public class Imprimir_Documento extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(usuario_buscado, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -116,8 +116,8 @@ public class Imprimir_Documento extends javax.swing.JFrame {
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29)
                         .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -142,19 +142,14 @@ public class Imprimir_Documento extends javax.swing.JFrame {
     int minutos = funciones.obtenerTiempoActualMinutos();
     System.out.println("Minutos guardados: " + minutos);
     
-//    for (Nodo_Lista<Usuario> pAux = Proyecto2.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getpNext()) {
-//			if (pAux.getData().getUsuario().equalsIgnoreCase(usuario_imprimir)) {
-//				for (Nodo_Lista<Documento> pAux_document = pAux.getData().getDocumentos().getpFirst(); pAux_document != null; pAux_document = pAux_document.getpNext()) {
-//					if (ComboBox.getSelectedItem().equals(pAux_document.getData().getNombre())) {
-//                                            Documento documentoImprimir = pAux_document.getData();
-//					    
-//                                            impresora.agregarDocumento (documentoImprimir);
-//                                            
-//					}
-//				}
-//				break;
-//			}
-//		}
+    usuario_imprimir = Proyecto2.simulacion.getUsuario(usuario_buscado.getText());
+		for (Nodo_Lista<Documento> pAux = usuario_imprimir.getDocumentos().getpFirst(); pAux != null; pAux = pAux.getpNext()) {
+			if (pAux.getData().getNombre() == ComboBox.getSelectedItem()) {
+                                usuario_imprimir.getDocumentos().InsertLast(pAux.getData());
+			}
+		}
+            ComboBox.removeAllItems();
+    
     
     }//GEN-LAST:event_jButton2ActionPerformed
 

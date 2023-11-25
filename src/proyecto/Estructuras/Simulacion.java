@@ -46,6 +46,8 @@ public class Simulacion {
         }
     }
     
+    
+    
    public void eliminarUsuario(String identificador) {
         usuarios.remove(identificador);
     }
