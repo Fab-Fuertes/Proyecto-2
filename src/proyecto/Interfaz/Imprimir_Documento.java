@@ -18,7 +18,7 @@ import static proyecto.pkg2.Proyecto2.funciones;
  */
 public class Imprimir_Documento extends javax.swing.JFrame {
     
-    private String usuario_imprimir;
+    private Usuario usuario_imprimir;
     Impresora impresora = new Impresora();
 
     /**
@@ -39,7 +39,7 @@ public class Imprimir_Documento extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        usuario = new javax.swing.JTextField();
+        usuario_buscado = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         ComboBox = new javax.swing.JComboBox<>();
@@ -86,7 +86,7 @@ public class Imprimir_Documento extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(usuario_buscado, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -106,7 +106,7 @@ public class Imprimir_Documento extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(usuario_buscado, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -125,36 +125,30 @@ public class Imprimir_Documento extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         ComboBox.removeAllItems();
-		for (Nodo_Lista<Usuario> pAux = Proyecto2.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getpNext()) {
-			if (pAux.getData().getUsuario().equalsIgnoreCase(usuario.getText())) {
-				usuario_imprimir = pAux.getData().getUsuario();
-				for (Nodo_Lista<Documento> pAux_document = pAux.getData().getDocumentos().getpFirst(); pAux_document != null; pAux_document = pAux_document.getpNext()) {
-					String documento = pAux_document.getData().getNombre();
-					ComboBox.addItem(documento);
-				}
-				break;
-			}
+		usuario_imprimir = Proyecto2.simulacion.getUsuario(usuario_buscado.getText());
+		for(Nodo_Lista<Documento> pAux = usuario_imprimir.getDocumentos().getpFirst(); pAux != null; pAux = pAux.getpNext()) {
+			ComboBox.addItem(pAux.getData().getNombre());
 		}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        int minutos = funciones.obtenerTiempoActualMinutos();
+    int minutos = funciones.obtenerTiempoActualMinutos();
     System.out.println("Minutos guardados: " + minutos);
     
-    for (Nodo_Lista<Usuario> pAux = Proyecto2.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getpNext()) {
-			if (pAux.getData().getUsuario().equalsIgnoreCase(usuario_imprimir)) {
-				for (Nodo_Lista<Documento> pAux_document = pAux.getData().getDocumentos().getpFirst(); pAux_document != null; pAux_document = pAux_document.getpNext()) {
-					if (ComboBox.getSelectedItem().equals(pAux_document.getData().getNombre())) {
-                                            Documento documentoImprimir = pAux_document.getData();
-					    
-                                            impresora.agregarDocumento (documentoImprimir);
-                                            
-					}
-				}
-				break;
-			}
-		}
+//    for (Nodo_Lista<Usuario> pAux = Proyecto2.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getpNext()) {
+//			if (pAux.getData().getUsuario().equalsIgnoreCase(usuario_imprimir)) {
+//				for (Nodo_Lista<Documento> pAux_document = pAux.getData().getDocumentos().getpFirst(); pAux_document != null; pAux_document = pAux_document.getpNext()) {
+//					if (ComboBox.getSelectedItem().equals(pAux_document.getData().getNombre())) {
+//                                            Documento documentoImprimir = pAux_document.getData();
+//					    
+//                                            impresora.agregarDocumento (documentoImprimir);
+//                                            
+//					}
+//				}
+//				break;
+//			}
+//		}
     
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -207,6 +201,6 @@ public class Imprimir_Documento extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField usuario;
+    private javax.swing.JTextField usuario_buscado;
     // End of variables declaration//GEN-END:variables
 }

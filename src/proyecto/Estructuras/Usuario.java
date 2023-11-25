@@ -20,6 +20,10 @@ public class Usuario {
         this.documentos = new Lista<>();
     }
     
+    public String toString() {
+        return "Usuario{ nombre='" + usuario + "', prioridad=" + prioridad + '}';
+    }
+    
     public void agregarDocumento(Documento documento) {
         this.documentos.InsertLast(documento);
     }
@@ -55,4 +59,6 @@ public class Usuario {
     public void setPrioridad(Prioridad prioridad) {
         this.prioridad = prioridad;
     }
+
+
 }

@@ -31,7 +31,7 @@
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="usuario" min="-2" pref="204" max="-2" attributes="0"/>
+                      <Component id="usuario_buscado" min="-2" pref="204" max="-2" attributes="0"/>
                       <EmptySpace pref="58" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jButton2" max="32767" attributes="0"/>
@@ -58,7 +58,7 @@
               <Component id="jLabel1" min="-2" pref="22" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="usuario" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                  <Component id="usuario_buscado" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                   <Component id="jButton1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -80,7 +80,7 @@
         <Property name="text" type="java.lang.String" value="Nombre del usuarios:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="usuario">
+    <Component class="javax.swing.JTextField" name="usuario_buscado">
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>

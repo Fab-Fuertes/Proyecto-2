@@ -10,8 +10,8 @@ package proyecto.Estructuras;
  * @author cehernandez
  */
 public class HashTable<K, V> {
-    private Entry<K, V>[] tabla;
-    private int tamaño;
+    public Entry<K, V>[] tabla;
+    public int tamaño;
     private int count;
 
     public HashTable(int tamaño) {
@@ -20,7 +20,7 @@ public class HashTable<K, V> {
         this.count = 0;
     }
 
-    private class Entry<K, V> {
+    public class Entry<K, V> {
         K llave;
         V valor;
         Entry<K, V> siguiente;
@@ -31,6 +31,43 @@ public class HashTable<K, V> {
             this.siguiente = siguiente;
         }
     }
+
+    public ArrayList<Entry<K, V>> getEntries() {
+        ArrayList<Entry<K, V>> entries = new ArrayList<>();
+
+        for (int i = 0; i < tamaño; i++) {
+            Entry<K, V> entry = tabla[i];
+            while (entry != null) {
+                entries.add(entry);
+                entry = entry.siguiente;
+            }
+        }
+
+        return entries;
+    }
+    
+        public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        stringBuilder.append("Contenido de la HashTable:\n");
+
+        for (int i = 0; i < tamaño; i++) {
+            if (tabla[i] != null) {
+                stringBuilder.append("Bucket ").append(i).append(": ");
+
+                Entry<K, V> entry = tabla[i];
+                while (entry != null) {
+                    stringBuilder.append("Key: ").append(entry.llave).append(", Value: ").append(entry.valor).append(" | ");
+                    entry = entry.siguiente;
+                }
+
+                stringBuilder.append("\n");
+            }
+        }
+
+        return stringBuilder.toString();
+    }
+    
 
     public void put(K llave, V valor) {
         if (llave == null) return;

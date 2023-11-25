@@ -5,6 +5,7 @@
  */
 package proyecto.Estructuras;
 
+
 /**
  *
  * @author cehernandez
@@ -22,7 +23,14 @@ public class Simulacion {
         Usuario usuario = new Usuario(identificador, prioridad);
         usuarios.put(identificador, usuario);
     }
+    
+    public String usartoString(String identificador){
+        return usuarios.toString();
+        
+    }
+    
 
+    
     public void enviarDocumento(String identificador, Documento documento) {
         Usuario usuario = usuarios.get(identificador);
         if (usuario != null) {
@@ -54,5 +62,8 @@ public class Simulacion {
     public Usuario getUsuario(String identificador) {
         return usuarios.get(identificador);
     }
+    
 
+    
+    
 }
