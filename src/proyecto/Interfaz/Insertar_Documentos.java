@@ -166,16 +166,10 @@ public class Insertar_Documentos extends javax.swing.JFrame {
         int valorAlto = Funciones.priority_high;
         int valorMedio = Funciones.priority_medium;
         
-        if (Proyecto2.simulacion.getUsuario(nombreUsuario).getPrioridad() <= valorAlto){
-            int resultado = minutos *3;
-        }
-        
-        if (Proyecto2.simulacion.getUsuario(nombreUsuario).getPrioridad() <= valorMedio){
-            int resultado = minutos *2;
-        }
+
         
         String tipoDocumento = listaTipos.getSelectedItem().toString();
-        Documento doc = new Documento(nombreDocumento,tamaño,tipoDocumento, minutos );
+        Documento doc = new Documento(nombreDocumento,tamaño,tipoDocumento);
     try{
 	Proyecto2.simulacion.getUsuario(nombreUsuario).getDocumentos().InsertLast(doc);
 	}catch (Exception e) {

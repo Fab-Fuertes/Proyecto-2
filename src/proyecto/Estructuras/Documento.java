@@ -21,21 +21,21 @@ public class Documento {
     private int tiempo;
     private boolean exists;
 
-    public Documento(int prioridad, String nombre, int tamaño, String tipo, int tiempo) {
+    public Documento(int prioridad, String nombre, int tamaño, String tipo) {
         this.prioridad = prioridad;
         this.nombre = nombre;
         this.tamaño = tamaño;
         this.tipo = tipo;
-        this.tiempo= tiempo;
     }
     
-    public Documento(String nombre, int tamaño, String tipo, int tiempo) {
+    
+    
+    
+    public Documento(String nombre, int tamaño, String tipo) {
         this.nombre = nombre;
         this.tamaño = tamaño;
         this.tipo = tipo;
-        this.tiempo = tiempo;
     }
-
 
     public int getPrioridad() {
         return prioridad;
