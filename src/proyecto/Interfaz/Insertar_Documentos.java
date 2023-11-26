@@ -166,11 +166,11 @@ public class Insertar_Documentos extends javax.swing.JFrame {
         int valorAlto = Funciones.priority_high;
         int valorMedio = Funciones.priority_medium;
         
-        if (Proyecto2.simulacion.getUsuario(nombreUsuario).getPrioridad() == valorAlto){
+        if (Proyecto2.simulacion.getUsuario(nombreUsuario).getPrioridad() <= valorAlto){
             int resultado = minutos *3;
         }
         
-        if (Proyecto2.simulacion.getUsuario(nombreUsuario).getPrioridad() == valorMedio){
+        if (Proyecto2.simulacion.getUsuario(nombreUsuario).getPrioridad() <= valorMedio){
             int resultado = minutos *2;
         }
         
