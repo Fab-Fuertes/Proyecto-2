@@ -7,7 +7,6 @@ package proyecto.Interfaz;
 import static proyecto.Estructuras.Impresora.listaDeDocumentos;
 
 import proyecto.Grafico.*;
-import static proyecto.Grafico.MostrarLista.listaDeDocumentos;
 /**
  *
  * @author fabys
@@ -15,7 +14,7 @@ import static proyecto.Grafico.MostrarLista.listaDeDocumentos;
 public class Interfaz_mostrar extends javax.swing.JFrame {
     
     
-    MostrarLista listaDeDocumentos;;
+    //MostrarLista listaDeDocumentos;;
 
     /**
      * Creates new form Interfaz_mostrar
@@ -25,7 +24,7 @@ public class Interfaz_mostrar extends javax.swing.JFrame {
         
         System.setProperty("org.graphstream.ui", "swing");
         
-        listaDeDocumentos = new MostrarLista();    
+        // istaDeDocumentos = new MostrarLista();    
         
     }
 
@@ -109,7 +108,6 @@ public class Interfaz_mostrar extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        listaDeDocumentos.mostrarLista();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
