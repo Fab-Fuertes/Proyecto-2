@@ -28,18 +28,18 @@ public class Simulacion {
         return usuarios.toString();
     }
     
-    public void enviarDocumento(String identificador, Documento documento, int priority) {
+    public void enviarDocumento(String identificador, Documento documento) {
         Usuario usuario = usuarios.get(identificador);
         if (usuario != null) {
-            getImpresora().agregarDocumento(documento, priority);
+            getImpresora().agregarDocumento(documento);
         }
     }
     
-    public void imprimirDocumento(String identificadorUsuario, int indexDocumento, int priority) {
+    public void imprimirDocumento(String identificadorUsuario, int indexDocumento) {
         Usuario usuario = usuarios.get(identificadorUsuario);
         if (usuario != null) {
             Documento documento = usuario.getDocumento(indexDocumento);
-            getImpresora().agregarDocumento(documento, priority);
+            getImpresora().agregarDocumento(documento);
         }
     }
     
@@ -47,11 +47,11 @@ public class Simulacion {
         usuarios.remove(identificador);
     }
    
-    public void crearDocumento(String identificadorUsuario, String nombre, int tamaño, String tipo) {
+    public void crearDocumento(String identificadorUsuario, String nombre, int tamaño, String tipo, int tiempo) {
         Usuario usuario = usuarios.get(identificadorUsuario);
         if (usuario != null) {
             int prioridad = usuario.getPrioridad();
-            Documento documento = new Documento(prioridad, nombre, tamaño, tipo);
+            Documento documento = new Documento(prioridad, nombre, tamaño, tipo, tiempo);
             usuario.agregarDocumento(documento);
         }
     }
@@ -60,16 +60,10 @@ public class Simulacion {
         return usuarios.get(identificador);
     }
 
-    /**
-     * @return the impresora
-     */
     public Impresora getImpresora() {
         return impresora;
     }
 
-    /**
-     * @param impresora the impresora to set
-     */
     public void setImpresora(Impresora impresora) {
         this.impresora = impresora;
     }

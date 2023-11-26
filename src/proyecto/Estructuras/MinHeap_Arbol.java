@@ -24,14 +24,13 @@ public class MinHeap_Arbol {
         return this.root == null;
     }
 
-
     public void setRoot(Nodo_Arbol<Documento> root) {
         this.root = root;
     }
 
-    // Método para insertar un elemento en el montículo
-    public void insert(Documento doc, int priority) {
-        Nodo_Arbol<Documento> newNode = new Nodo_Arbol<>(doc, priority);
+    public void insert(Documento doc) {
+        int tiempo = doc.getTiempo();
+        Nodo_Arbol<Documento> newNode = new Nodo_Arbol<>(doc, tiempo);
         if (root == null) {
             root = newNode;
         } else {
@@ -39,7 +38,7 @@ public class MinHeap_Arbol {
             Nodo_Arbol<Documento> parent;
             while (true) {
                 parent = current;
-                if (priority < current.getPriority()) {
+                if (tiempo < current.getPriority()) {
                     current = current.getpLeft();
                     if (current == null) {
                         parent.setpLeft(newNode);
@@ -68,7 +67,6 @@ public class MinHeap_Arbol {
         }
     }
 
-    // Método para eliminar el elemento mínimo del montículo
     public Documento removeMin() {
         if (root == null) {
             throw new IllegalStateException("Heap is empty");
@@ -79,7 +77,6 @@ public class MinHeap_Arbol {
         }
     }
 
-    // Método para eliminar un nodo específico del montículo
     public void remove(Documento key) {
         root = removeRec(root, key);
     }
@@ -90,7 +87,7 @@ public class MinHeap_Arbol {
         else if (node2 == null)
             return node1;
         else {
-            if (node1.getPriority() < node2.getPriority())
+            if (node1.getData().getTiempo() < node2.getData().getTiempo())
                 return node1;
             else
                 return node2;
@@ -110,7 +107,7 @@ public class MinHeap_Arbol {
             else {
                 Nodo_Arbol<Documento> temp = minValue(node.getpLeft(), node.getpRight());
                 node.setData(temp.getData());
-                node.setPriority(temp.getPriority());
+                node.setPriority(temp.getData().getTiempo());
                 if (temp.equals(node.getpLeft()))
                     node.setpLeft(removeRec(node.getpLeft(), temp.getData()));
                 else

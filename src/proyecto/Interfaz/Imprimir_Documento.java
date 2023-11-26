@@ -139,16 +139,16 @@ public class Imprimir_Documento extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-    int minutos = funciones.obtenerTiempoActualMinutos();
-    System.out.println("Minutos guardados: " + minutos);
+        int minutos = funciones.obtenerTiempoActualMinutos();
+        System.out.println("Minutos guardados: " + minutos);
     
-    usuario_imprimir = Proyecto2.simulacion.getUsuario(usuario_buscado.getText());
-		for (Nodo_Lista<Documento> pAux = usuario_imprimir.getDocumentos().getpFirst(); pAux != null; pAux = pAux.getpNext()) {
-			if (pAux.getData().getNombre() == ComboBox.getSelectedItem()) {
-                                Proyecto2.simulacion.enviarDocumento(usuario_imprimir.getUsuario(), pAux.getData(), pAux.getData().getPrioridad());
-			}
-		}
-            ComboBox.removeAllItems();
+        usuario_imprimir = Proyecto2.simulacion.getUsuario(usuario_buscado.getText());
+        for (Nodo_Lista<Documento> pAux = usuario_imprimir.getDocumentos().getpFirst(); pAux != null; pAux = pAux.getpNext()) {
+            if (pAux.getData().getNombre() == ComboBox.getSelectedItem()) {
+                Proyecto2.simulacion.enviarDocumento(usuario_imprimir.getUsuario(), pAux.getData());
+            }
+        }
+        ComboBox.removeAllItems();
     
     
     }//GEN-LAST:event_jButton2ActionPerformed

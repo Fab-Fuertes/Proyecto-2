@@ -15,15 +15,14 @@ public class Impresora {
     private HashTable<String, Documento> documentosPorUsuario;
     public static Lista<Documento> listaDeDocumentos;
 
-    // Constructor
     public Impresora() {
         this.colaDeImpresion = new MinHeap_Arbol();
-        this.documentosPorUsuario = new HashTable<String, Documento>(20); // Tamaño inicial de 10
+        this.documentosPorUsuario = new HashTable<String, Documento>(20);
         this.listaDeDocumentos = new Lista<Documento>();
     }
 
-    public void agregarDocumento(Documento doc, int prioridad) { 
-        getColaDeImpresion().insert(doc, prioridad);
+    public void agregarDocumento(Documento doc) { 
+        getColaDeImpresion().insert(doc);
         documentosPorUsuario.put(doc.getNombre(), doc);
     }
 
