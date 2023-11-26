@@ -6,24 +6,24 @@
 package proyecto.Grafico;
 
 import proyecto.Estructuras.Documento;
-import proyecto.Estructuras.MinHeap;
 import proyecto.Estructuras.Impresora;
 import proyecto.Estructuras.Lista;
 import proyecto.Estructuras.Nodo_Arbol;
 import org.graphstream.graph.*;
 import org.graphstream.graph.implementations.*;
+import proyecto.Estructuras.MinHeap_Arbol;
 
 /**
  *
  * @author fabys
  */
 public class Mostrar {
-    private MinHeap colaDeImpresion;
+    private MinHeap_Arbol colaDeImpresion;
     private Lista<Documento> listaDeDocumentos; 
     private Graph arbol;
     private Graph cola;
     
-    public Mostrar(MinHeap colaDeImpresion, Lista<Documento> listaDeDocumentos) {
+    public Mostrar(MinHeap_Arbol colaDeImpresion, Lista<Documento> listaDeDocumentos) {
         this.colaDeImpresion = colaDeImpresion;
         this.listaDeDocumentos = listaDeDocumentos;
         this.arbol = new SingleGraph("Arbol");
@@ -31,8 +31,12 @@ public class Mostrar {
     }
     
     public void mostrarArbol() {
-        // Aquí debes agregar el código para visualizar el arbol
-        arbol.display();
+        if (this.colaDeImpresion.isEmpty()) {
+            System.out.println("El árbol está vacío.");
+        } else {
+            // Aquí debes agregar el código para visualizar el arbol
+            arbol.display();
+        }
     }
     
     public void mostrarCola() {
@@ -40,6 +44,5 @@ public class Mostrar {
         cola.display();
     }
 }
-    
 
 

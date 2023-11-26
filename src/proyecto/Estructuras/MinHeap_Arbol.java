@@ -19,12 +19,15 @@ public class MinHeap_Arbol {
     public Nodo_Arbol<Documento> getRoot() {
         return root;
     }
+    
+    public boolean isEmpty() {
+        return this.root == null;
+    }
+
 
     public void setRoot(Nodo_Arbol<Documento> root) {
         this.root = root;
     }
-    
-    
 
     // Método para insertar un elemento en el montículo
     public void insert(Documento doc, int priority) {
@@ -52,12 +55,12 @@ public class MinHeap_Arbol {
             }
         }
     }
-    
+
     public void preorder() {
         this.preorder(this.getRoot());
     }
 
-    private void preorder(Nodo_Arbol root) {
+    private void preorder(Nodo_Arbol<Documento> root) {
         if (root != null) {
             System.out.println(root.getData().toString());
             this.preorder(root.getpLeft());
@@ -71,13 +74,13 @@ public class MinHeap_Arbol {
             throw new IllegalStateException("Heap is empty");
         } else {
             Documento min = root.getData();
-            remove(root, min);
+            root = removeRec(root, min);
             return min;
         }
     }
 
     // Método para eliminar un nodo específico del montículo
-    public void remove(Nodo_Arbol<Documento> root, Documento key) {
+    public void remove(Documento key) {
         root = removeRec(root, key);
     }
 
@@ -119,5 +122,4 @@ public class MinHeap_Arbol {
         }
         return node;
     }
-    
 }

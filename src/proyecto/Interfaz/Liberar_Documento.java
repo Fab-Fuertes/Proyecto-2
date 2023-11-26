@@ -16,14 +16,14 @@ import static proyecto.pkg2.Proyecto2.funciones;
  *
  * @author fabys
  */
-public class Imprimir_Documento extends javax.swing.JFrame {
+public class Liberar_Documento extends javax.swing.JFrame {
     
     private Usuario usuario_imprimir;
 
     /**
      * Creates new form Imprimir_Documento
      */
-    public Imprimir_Documento() {
+    public Liberar_Documento() {
         initComponents();
         ComboBox.removeAllItems();
     }

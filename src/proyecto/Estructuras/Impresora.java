@@ -31,7 +31,7 @@ public class Impresora {
         Documento doc = documentosPorUsuario.get(nombreDocumento);
 
         if (doc != null) {
-            getColaDeImpresion().remove(getColaDeImpresion().getRoot(), doc);
+            getColaDeImpresion().remove(doc);
             documentosPorUsuario.remove(nombreDocumento);
         }
     }
