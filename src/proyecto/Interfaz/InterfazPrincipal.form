@@ -53,15 +53,10 @@
                               <Component id="Modificar_documentos1" alignment="1" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton2" min="-2" pref="180" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton6" min="-2" pref="180" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jButton2" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                          <Component id="jButton6" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>

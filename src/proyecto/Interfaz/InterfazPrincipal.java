@@ -42,6 +42,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     private JTextField jTextFieldIdentificador;
     private JComboBox<Prioridad> jComboBoxPrioridad;
     private JButton jButtonAgregarUsuario;
+   
     
     public InterfazPrincipal() {
         simulacion = new Simulacion();
@@ -62,7 +63,8 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         String texto = funcion.actualizarEtiquetaTiempo();
         etiquetaTiempo.setText(texto);
     }
-    
+
+
     
     
     /**

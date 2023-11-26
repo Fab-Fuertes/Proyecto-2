@@ -39,6 +39,7 @@ public class Funciones {
     public static int priority_high = 0;
     public static int priority_medium = 1000;
     public static int priority_low = 10000;
+    public Timer timer;
    
     public Funciones() {
     }
@@ -118,16 +119,33 @@ public class Funciones {
             horas = 0;
         }
     }
+    
+    public void Cronometro1() {
 
-    public String actualizarEtiquetaTiempo() {
-        String texto = (horas <= 9 ? "0" : "") + horas + ":" + (minutos <= 9 ? "0" : "") + minutos + ":" + (segundos <= 9 ? "0" : "") + segundos + ":" + (milisegundos <= 9 ? "0" : "") + milisegundos;
-        return texto;
+    
+
+        timer = new Timer(1000,new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                segundos++;
+            }
+            });
+        timer.start();
     }
     
     
     public int obtenerTiempoActualMinutos() {
         return minutos;
     }	  
+    
+    
+    public String actualizarEtiquetaTiempo() {
+        String texto = String.valueOf(this.segundos) + "s";
+        return texto;
+    }
+    public int obtenerTiempoActualSegundos() {
+        return segundos;
+    }
     
     public void crear_usuario(String prioridad, String nombre) {
         
