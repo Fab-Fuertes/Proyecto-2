@@ -11,19 +11,19 @@ package proyecto.Estructuras;
  */
 public class Impresora {
     
-    private MinHeap colaDeImpresion;
+    private MinHeap_Arbol colaDeImpresion;
     private HashTable<String, Documento> documentosPorUsuario;
     public static Lista<Documento> listaDeDocumentos;
 
     // Constructor
     public Impresora() {
-        this.colaDeImpresion = new MinHeap();
+        this.colaDeImpresion = new MinHeap_Arbol();
         this.documentosPorUsuario = new HashTable<String, Documento>(20); // Tamaño inicial de 10
         this.listaDeDocumentos = new Lista<Documento>();
     }
 
-    public void agregarDocumento(Documento doc) { 
-        colaDeImpresion.insert(doc);
+    public void agregarDocumento(Documento doc, int prioridad) { 
+        getColaDeImpresion().insert(doc, prioridad);
         documentosPorUsuario.put(doc.getNombre(), doc);
     }
 
@@ -31,17 +31,17 @@ public class Impresora {
         Documento doc = documentosPorUsuario.get(nombreDocumento);
 
         if (doc != null) {
-            colaDeImpresion.remove(doc);
+            getColaDeImpresion().remove(getColaDeImpresion().getRoot(), doc);
             documentosPorUsuario.remove(nombreDocumento);
         }
     }
 
     public Documento siguienteDocumento() {
-        return colaDeImpresion.removeMin();
+        return getColaDeImpresion().removeMin();
     }
 
     public void liberarImpresora() {
-        Documento doc = colaDeImpresion.removeMin();
+        Documento doc = getColaDeImpresion().removeMin();
 
         for (int i = 0; i < listaDeDocumentos.getSize(); i++) {
             if (listaDeDocumentos.searchByIndex(i).getData().equals(doc)) {
@@ -50,5 +50,19 @@ public class Impresora {
             }
         }
         documentosPorUsuario.remove(doc.getNombre());
+    }
+
+    /**
+     * @return the colaDeImpresion
+     */
+    public MinHeap_Arbol getColaDeImpresion() {
+        return colaDeImpresion;
+    }
+
+    /**
+     * @param colaDeImpresion the colaDeImpresion to set
+     */
+    public void setColaDeImpresion(MinHeap_Arbol colaDeImpresion) {
+        this.colaDeImpresion = colaDeImpresion;
     }
 }

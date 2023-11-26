@@ -26,29 +26,24 @@ public class Simulacion {
     
     public String usartoString(){
         return usuarios.toString();
-        
     }
     
-
-    
-    public void enviarDocumento(String identificador, Documento documento) {
+    public void enviarDocumento(String identificador, Documento documento, int priority) {
         Usuario usuario = usuarios.get(identificador);
         if (usuario != null) {
-            impresora.agregarDocumento(documento);
+            getImpresora().agregarDocumento(documento, priority);
         }
     }
     
-    public void imprimirDocumento(String identificadorUsuario, int indexDocumento) {
+    public void imprimirDocumento(String identificadorUsuario, int indexDocumento, int priority) {
         Usuario usuario = usuarios.get(identificadorUsuario);
         if (usuario != null) {
             Documento documento = usuario.getDocumento(indexDocumento);
-            impresora.agregarDocumento(documento);
+            getImpresora().agregarDocumento(documento, priority);
         }
     }
     
-    
-    
-   public void eliminarUsuario(String identificador) {
+    public void eliminarUsuario(String identificador) {
         usuarios.remove(identificador);
     }
    
@@ -64,8 +59,18 @@ public class Simulacion {
     public Usuario getUsuario(String identificador) {
         return usuarios.get(identificador);
     }
-    
 
-    
-    
+    /**
+     * @return the impresora
+     */
+    public Impresora getImpresora() {
+        return impresora;
+    }
+
+    /**
+     * @param impresora the impresora to set
+     */
+    public void setImpresora(Impresora impresora) {
+        this.impresora = impresora;
+    }
 }

@@ -57,6 +57,11 @@ public class Interfaz_mostrar extends javax.swing.JFrame {
         });
 
         jButton2.setText("Mostrar Arbol");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Regresar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -113,6 +118,12 @@ public class Interfaz_mostrar extends javax.swing.JFrame {
                 v2.setVisible(true);
                 this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        MostrarArbol graph = new MostrarArbol();
+        graph.mostrar();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
