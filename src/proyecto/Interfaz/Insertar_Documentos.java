@@ -8,6 +8,8 @@ import proyecto.Estructuras.*;
 import proyecto.Grafico.*;
 import proyecto.pkg2.Proyecto2;
 import javax.swing.JOptionPane;
+import proyecto.Funciones.Funciones;
+import static proyecto.pkg2.Proyecto2.funciones;
 /**
  *
  * @author fabys
@@ -147,6 +149,9 @@ public class Insertar_Documentos extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
+        int minutos = funciones.obtenerTiempoActualMinutos();
+    System.out.println("Minutos guardados: " + minutos);
+        
         String nombreUsuario = Entrada1.getText();
         String nombreDocumento = Entrada2.getText();
         String tamañoDocumento = Entrada3.getText();
@@ -157,9 +162,21 @@ public class Insertar_Documentos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "El tamaño del documento debe ser un número entero.");
             return;
         }
+        
+        int valorAlto = Funciones.priority_high;
+        int valorMedio = Funciones.priority_medium;
+        
+        if (Proyecto2.simulacion.getUsuario(nombreUsuario).getPrioridad() == valorAlto){
+            int resultado = minutos *3;
+        }
+        
+        if (Proyecto2.simulacion.getUsuario(nombreUsuario).getPrioridad() == valorMedio){
+            int resultado = minutos *2;
+        }
+        
         String tipoDocumento = listaTipos.getSelectedItem().toString();
-        Documento doc = new Documento(nombreDocumento,tamaño,tipoDocumento);
-try{
+        Documento doc = new Documento(nombreDocumento,tamaño,tipoDocumento, minutos );
+    try{
 	Proyecto2.simulacion.getUsuario(nombreUsuario).getDocumentos().InsertLast(doc);
 	}catch (Exception e) {
            		JOptionPane.showMessageDialog(null, "El usuario no existe!");

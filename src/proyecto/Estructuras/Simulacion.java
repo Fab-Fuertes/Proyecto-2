@@ -47,11 +47,11 @@ public class Simulacion {
         usuarios.remove(identificador);
     }
    
-    public void crearDocumento(String identificadorUsuario, String nombre, int tamaño, String tipo) {
+    public void crearDocumento(String identificadorUsuario, String nombre, int tamaño, String tipo, int tiempo) {
         Usuario usuario = usuarios.get(identificadorUsuario);
         if (usuario != null) {
             int prioridad = usuario.getPrioridad();
-            Documento documento = new Documento(prioridad, nombre, tamaño, tipo);
+            Documento documento = new Documento(prioridad, nombre, tamaño, tipo, tiempo);
             usuario.agregarDocumento(documento);
         }
     }
