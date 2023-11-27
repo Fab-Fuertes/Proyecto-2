@@ -38,10 +38,11 @@ public class Documento {
     }
 
     
-    public Documento(String nombre, int tamaño, String tipo) {
+    public Documento(String nombre, int tamaño, String tipo, int tiempo) {
         this.nombre = nombre;
         this.tamaño = tamaño;
         this.tipo = tipo;
+        this.tiempo = tiempo;
     }
 
     public int getPrioridad() {

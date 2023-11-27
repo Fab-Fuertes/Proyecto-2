@@ -135,7 +135,7 @@ public class Funciones {
     
     
     public int obtenerTiempoActualMinutos() {
-        return minutos;
+        return segundos;
     }	  
     
     

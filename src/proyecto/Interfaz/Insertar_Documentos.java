@@ -149,27 +149,40 @@ public class Insertar_Documentos extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-        int minutos = funciones.obtenerTiempoActualMinutos();
-    System.out.println("Minutos guardados: " + minutos);
+        int segundos = funciones.obtenerTiempoActualMinutos();
+    System.out.println("Minutos guardados: " + segundos);
+    
+    
         
         String nombreUsuario = Entrada1.getText();
         String nombreDocumento = Entrada2.getText();
         String tamañoDocumento = Entrada3.getText();
         int tamaño;
+        
+        int valorAlto = Funciones.priority_high;
+        int valorMedio = Funciones.priority_medium;
+        
+        if (Proyecto2.simulacion.getUsuario(nombreUsuario).getPrioridad() <= valorAlto){
+            segundos = segundos *3;
+        }
+
+        if (Proyecto2.simulacion.getUsuario(nombreUsuario).getPrioridad() <= valorMedio){
+            segundos = segundos *2;
+        }
+        
+        System.out.println(segundos);
+        
         try {
             tamaño = Integer.parseInt(tamañoDocumento);
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "El tamaño del documento debe ser un número entero.");
             return;
         }
-        
-        int valorAlto = Funciones.priority_high;
-        int valorMedio = Funciones.priority_medium;
-        
+
 
         
         String tipoDocumento = listaTipos.getSelectedItem().toString();
-        Documento doc = new Documento(nombreDocumento,tamaño,tipoDocumento);
+        Documento doc = new Documento(nombreDocumento,tamaño,tipoDocumento, segundos);
     try{
 	Proyecto2.simulacion.getUsuario(nombreUsuario).getDocumentos().InsertLast(doc);
 	}catch (Exception e) {
