@@ -12,6 +12,8 @@ import proyecto.Estructuras.Usuario;
 import proyecto.Estructuras.Prioridad;
 import proyecto.Funciones.Funciones;
 import proyecto.pkg2.Proyecto2;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -141,12 +143,19 @@ public class Insertar_Usuarios extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-        String nombre = Entrada1.getText();
+         String nombre = Entrada1.getText();
+        if (nombre == null || nombre.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "El nombre del usuario no puede estar vacío.");
+            return;
+        }
+
         String datoPrioridad = listaPrioridades.getSelectedItem().toString();
         System.out.println("Prioridad:" + datoPrioridad);
         Funciones func = new Funciones();
         func.crear_usuario(datoPrioridad, nombre);
         Salida.setText(Proyecto2.simulacion.usartoString());
+
+        JOptionPane.showMessageDialog(null, "Usuario creado exitosamente");   
         
     }//GEN-LAST:event_jButton1ActionPerformed
     

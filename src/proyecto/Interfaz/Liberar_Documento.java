@@ -8,6 +8,7 @@ package proyecto.Interfaz;
 import proyecto.Estructuras.*;
 import proyecto.pkg2.Proyecto2;
 import static proyecto.pkg2.Proyecto2.funciones;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -115,16 +116,21 @@ public class Liberar_Documento extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 	    // TODO add your handling code here:
 	
-	 for(Nodo_Lista<Documento> pAux = documentos_en_cola.getpFirst(); pAux != null; pAux = pAux.getpNext() ) {
-		 if(pAux.getData().getNombre() == ComboBox.getSelectedItem()) {
-			 documento_seleccionado = pAux.getData();
-			 System.out.println("this works");
-		 }
-	 }
+        Documento documento_seleccionado = null;
+        for(Nodo_Lista<Documento> pAux = documentos_en_cola.getpFirst(); pAux != null; pAux = pAux.getpNext() ) {
+            if(pAux.getData().getNombre().equals(ComboBox.getSelectedItem())) {
+                documento_seleccionado = pAux.getData();
+                break;
+            }
+        }
 
-	 Proyecto2.simulacion.getImpresora().getColaDeImpresion().remove(documento_seleccionado);
-	 ComboBox.removeItem(ComboBox.getSelectedItem());
-	 documentos_en_cola.remove(documento_seleccionado);
+        if (documento_seleccionado != null) {
+            Proyecto2.simulacion.getImpresora().getColaDeImpresion().remove(documento_seleccionado);
+            ComboBox.removeItem(ComboBox.getSelectedItem());
+            documentos_en_cola.remove(documento_seleccionado);
+        } else {
+            JOptionPane.showMessageDialog(null, "No se encontró el documento seleccionado en la cola de documentos.");
+        }
 
     }//GEN-LAST:event_jButton2ActionPerformed
 

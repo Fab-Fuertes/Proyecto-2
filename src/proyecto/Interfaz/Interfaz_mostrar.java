@@ -7,6 +7,7 @@ package proyecto.Interfaz;
 import static proyecto.Estructuras.Impresora.listaDeDocumentos;
 
 import proyecto.Grafico.*;
+import javax.swing.*;
 /**
  *
  * @author fabys
@@ -110,6 +111,11 @@ public class Interfaz_mostrar extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+	Mostrar secuencia = new Mostrar();
+	StringBuilder fr = new StringBuilder();
+	fr.append("Lista: ");
+	secuencia.construirSecuencia(fr);
+	JOptionPane.showMessageDialog(rootPane, fr.toString());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

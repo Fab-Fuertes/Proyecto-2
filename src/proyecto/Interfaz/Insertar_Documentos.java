@@ -150,28 +150,32 @@ public class Insertar_Documentos extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         int segundos = funciones.obtenerTiempoActualMinutos();
-    System.out.println("Minutos guardados: " + segundos);
-    
-    
-        
+        System.out.println("Minutos guardados: " + segundos);
+
         String nombreUsuario = Entrada1.getText();
         String nombreDocumento = Entrada2.getText();
         String tamañoDocumento = Entrada3.getText();
         int tamaño;
-        
+
         int valorAlto = Funciones.priority_high;
         int valorMedio = Funciones.priority_medium;
-        
-        if (Proyecto2.simulacion.getUsuario(nombreUsuario).getPrioridad() <= valorAlto){
+
+        Usuario usuario = Proyecto2.simulacion.getUsuario(nombreUsuario);
+        if (usuario == null) {
+            JOptionPane.showMessageDialog(null, "El usuario no existe!");
+            return;
+        }
+
+        if (usuario.getPrioridad() <= valorAlto){
             segundos = segundos *3;
         }
 
-        if (Proyecto2.simulacion.getUsuario(nombreUsuario).getPrioridad() <= valorMedio){
+        if (usuario.getPrioridad() <= valorMedio){
             segundos = segundos *2;
         }
-        
+
         System.out.println(segundos);
-        
+
         try {
             tamaño = Integer.parseInt(tamañoDocumento);
         } catch (NumberFormatException e) {
@@ -179,18 +183,16 @@ public class Insertar_Documentos extends javax.swing.JFrame {
             return;
         }
 
-
-        
         String tipoDocumento = listaTipos.getSelectedItem().toString();
         Documento doc = new Documento(nombreDocumento,tamaño,tipoDocumento, segundos);
-    try{
-	Proyecto2.simulacion.getUsuario(nombreUsuario).getDocumentos().InsertLast(doc);
-	}catch (Exception e) {
-           		JOptionPane.showMessageDialog(null, "El usuario no existe!");
-			return;
-	}
-	
-           	JOptionPane.showMessageDialog(null, "Documento insertado exitosamente");
+        try{
+            usuario.getDocumentos().InsertLast(doc);
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "El usuario no existe!");
+            return;
+        }
+
+        JOptionPane.showMessageDialog(null, "Documento insertado exitosamente");
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -8,6 +8,8 @@ package proyecto.Interfaz;
 import proyecto.Estructuras.*;
 import proyecto.pkg2.*;
 import javax.swing.*;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -144,25 +146,34 @@ public class Eliminar_Documento extends javax.swing.JFrame {
 
         private void eliminar_documentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminar_documentoActionPerformed
 		// TODO add your handling code here:
-		usuario_eliminar = Proyecto2.simulacion.getUsuario(usuario_buscado.getText());
-		for (Nodo_Lista<Documento> pAux = usuario_eliminar.getDocumentos().getpFirst(); pAux != null; pAux = pAux.getpNext()) {
-			if (pAux.getData().getNombre() == ComboBox.getSelectedItem()) {
-				usuario_eliminar.getDocumentos().remove(pAux.getData());
-			}
-		}
-                ComboBox.removeAllItems();
+            Usuario usuario_eliminar = Proyecto2.simulacion.getUsuario(usuario_buscado.getText());
+            if (usuario_eliminar == null) {
+                JOptionPane.showMessageDialog(null, "El usuario no existe!");
+                return;
+            }
+            for (Nodo_Lista<Documento> pAux = usuario_eliminar.getDocumentos().getpFirst(); pAux != null; pAux = pAux.getpNext()) {
+                if (pAux.getData().getNombre() == ComboBox.getSelectedItem()) {
+                    usuario_eliminar.getDocumentos().remove(pAux.getData());
+                    JOptionPane.showMessageDialog(null, "Documento eliminado exitosamente");
+                }
+            }
+            ComboBox.removeAllItems();
         }//GEN-LAST:event_eliminar_documentoActionPerformed
 
         private void buscar_documentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscar_documentosActionPerformed
 		// TODO add your handling code here:
-		ComboBox.removeAllItems();
-		usuario_eliminar = Proyecto2.simulacion.getUsuario(usuario_buscado.getText());
-		for (Nodo_Lista<Documento> pAux = usuario_eliminar.getDocumentos().getpFirst(); pAux != null; pAux = pAux.getpNext()) {
-			ComboBox.addItem(pAux.getData().getNombre());
-		}
-		if (ComboBox.getItemCount() == 0) {	
-           			 JOptionPane.showMessageDialog(null, "El Usuario no cuenta con documentos");
-		}
+               ComboBox.removeAllItems();
+               Usuario usuario_eliminar = Proyecto2.simulacion.getUsuario(usuario_buscado.getText());
+               if (usuario_eliminar == null) {
+                   JOptionPane.showMessageDialog(null, "El usuario no existe!");
+                   return;
+               }
+               for (Nodo_Lista<Documento> pAux = usuario_eliminar.getDocumentos().getpFirst(); pAux != null; pAux = pAux.getpNext()) {
+                   ComboBox.addItem(pAux.getData().getNombre());
+               }
+               if (ComboBox.getItemCount() == 0) {    
+                   JOptionPane.showMessageDialog(null, "El Usuario no cuenta con documentos");
+               }       
         }//GEN-LAST:event_buscar_documentosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

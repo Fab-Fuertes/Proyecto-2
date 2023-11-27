@@ -40,15 +40,22 @@ public class Impresora {
     }
 
     public void liberarImpresora() {
-        Documento doc = getColaDeImpresion().removeMin();
-
-        for (int i = 0; i < listaDeDocumentos.getSize(); i++) {
-            if (listaDeDocumentos.searchByIndex(i).getData().equals(doc)) {
-                listaDeDocumentos.remove(i);
-                break;
+        if (getColaDeImpresion().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No hay documentos en la cola de impresión.");
+        } else {
+            Documento doc = getColaDeImpresion().removeMin();
+            if (doc != null) {
+                for (int i = 0; i < listaDeDocumentos.getSize(); i++) {
+                    if (listaDeDocumentos.searchByIndex(i).getData().equals(doc)) {
+                        listaDeDocumentos.remove(i);
+                        break;
+                    }
+                }
+                documentosPorUsuario.remove(doc.getNombre());
+            } else {
+                JOptionPane.showMessageDialog(null, "No hay documentos en la cola de impresión.");
             }
         }
-        documentosPorUsuario.remove(doc.getNombre());
     }
 
     /**
