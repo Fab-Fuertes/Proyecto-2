@@ -73,7 +73,7 @@ public class Liberar_Documento extends javax.swing.JFrame {
                         }
                 });
 
-                jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salida.png.36x36.png"))); // NOI18N
+                jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salida.png"))); // NOI18N
                 jButton3.setText("Regresar");
                 jButton3.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
