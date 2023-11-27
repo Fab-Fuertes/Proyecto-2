@@ -28,6 +28,10 @@ public class Simulacion {
         return usuarios.toString();
     }
     
+    public boolean usuarioExiste(String identificador) {
+        return usuarios.get(identificador) != null;
+    }
+    
     public void enviarDocumento(String identificador, Documento documento) {
         Usuario usuario = usuarios.get(identificador);
         if (usuario != null) {

@@ -11,6 +11,7 @@ import proyecto.Estructuras.Nodo_Lista;
 import proyecto.Estructuras.Usuario;
 import proyecto.pkg2.Proyecto2;
 import static proyecto.pkg2.Proyecto2.funciones;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -131,23 +132,48 @@ public class Imprimir_Documento extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         ComboBox.removeAllItems();
-		usuario_imprimir = Proyecto2.simulacion.getUsuario(usuario_buscado.getText());
-		for(Nodo_Lista<Documento> pAux = usuario_imprimir.getDocumentos().getpFirst(); pAux != null; pAux = pAux.getpNext()) {
-			ComboBox.addItem(pAux.getData().getNombre());
-		}
+        String identificadorUsuario = usuario_buscado.getText();
+        if (identificadorUsuario == null || identificadorUsuario.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese un nombre de usuario.");
+            return;
+        }
+        usuario_imprimir = Proyecto2.simulacion.getUsuario(identificadorUsuario);
+        if (usuario_imprimir == null) {
+            JOptionPane.showMessageDialog(null, "El usuario no existe. Por favor, verifique el nombre del usuario.");
+            return;
+        }
+        for(Nodo_Lista<Documento> pAux = usuario_imprimir.getDocumentos().getpFirst(); pAux != null; pAux = pAux.getpNext()) {
+            ComboBox.addItem(pAux.getData().getNombre());
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         int minutos = funciones.obtenerTiempoActualMinutos();
         System.out.println("Minutos guardados: " + minutos);
-    
-        usuario_imprimir = Proyecto2.simulacion.getUsuario(usuario_buscado.getText());
+
+        String identificadorUsuario = usuario_buscado.getText();
+        if (identificadorUsuario == null || identificadorUsuario.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese un nombre de usuario.");
+            return;
+        }
+        usuario_imprimir = Proyecto2.simulacion.getUsuario(identificadorUsuario);
+        if (usuario_imprimir == null) {
+            JOptionPane.showMessageDialog(null, "El usuario no existe. Por favor, verifique el nombre del usuario.");
+            return;
+        }
+        Documento documento_seleccionado = null;
         for (Nodo_Lista<Documento> pAux = usuario_imprimir.getDocumentos().getpFirst(); pAux != null; pAux = pAux.getpNext()) {
-            if (pAux.getData().getNombre() == ComboBox.getSelectedItem()) {
-                Proyecto2.simulacion.enviarDocumento(usuario_imprimir.getUsuario(), pAux.getData());
+            if (pAux.getData().getNombre().equals(ComboBox.getSelectedItem())) {
+                documento_seleccionado = pAux.getData();
+                break;
             }
         }
+        if (documento_seleccionado == null) {
+            JOptionPane.showMessageDialog(null, "No se encontró el documento seleccionado en la lista de documentos del usuario.");
+            return;
+        }
+        Proyecto2.simulacion.enviarDocumento(usuario_imprimir.getUsuario(), documento_seleccionado);
         ComboBox.removeAllItems();
     
     

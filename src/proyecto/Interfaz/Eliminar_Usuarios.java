@@ -103,7 +103,18 @@ public class Eliminar_Usuarios extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-	Proyecto2.simulacion.eliminarUsuario(usuario_eliminar.getText());
+        String usuario = usuario_eliminar.getText();
+        if (usuario == null || usuario.isEmpty()) {
+            // No se agrega nada si el nombre del usuario está vacío
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese un nombre de usuario.");
+        } else {
+            if (Proyecto2.simulacion.usuarioExiste(usuario)) {
+                Proyecto2.simulacion.eliminarUsuario(usuario);
+                JOptionPane.showMessageDialog(null, "El usuario se eliminó exitosamente.");
+            } else {
+                JOptionPane.showMessageDialog(null, "El usuario no existe. Por favor, verifique el nombre del usuario.");
+            }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void usuario_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuario_eliminarActionPerformed
