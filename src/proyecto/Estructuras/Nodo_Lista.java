@@ -18,6 +18,8 @@ public class Nodo_Lista<T> {
     }
 
     private Nodo_Lista<T> pNext;
+    
+    
 
     /**
      * @return the data
@@ -25,6 +27,8 @@ public class Nodo_Lista<T> {
     public T getData() {
         return data;
     }
+    
+
 
     /**
      * @param data the data to set

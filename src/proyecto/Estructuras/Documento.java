@@ -76,5 +76,7 @@ public class Documento {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+    
+    
 
 }

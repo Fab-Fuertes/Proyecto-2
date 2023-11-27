@@ -67,4 +67,5 @@ public class Simulacion {
     public void setImpresora(Impresora impresora) {
         this.impresora = impresora;
     }
+
 }
