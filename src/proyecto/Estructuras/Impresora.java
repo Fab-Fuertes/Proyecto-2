@@ -5,6 +5,8 @@
  */
 package proyecto.Estructuras;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author cehernandez
