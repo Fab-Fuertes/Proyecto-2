@@ -38,7 +38,7 @@ public class MostrarArbol {
         
         String idNodo = String.valueOf(nodo.hashCode());
         arbol.addNode(idNodo);
-        arbol.getNode(idNodo).setAttribute("ui.label", nodo.getData().toString());
+        arbol.getNode(idNodo).setAttribute("ui.label", nodo.getData().getNombre());
         
         if (idPadre != null) {
             arbol.addEdge(idPadre + "-" + idNodo, idPadre, idNodo);
